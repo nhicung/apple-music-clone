@@ -1,20 +1,31 @@
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme'
-import { Button } from '@mui/material';
-import GridItem from './components/GridItem'
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme";
+import GridItem1 from "./components/GridItem1";
+import GridItem2 from "./components/GridItem2";
+import GridItem3 from "./components/GridItem3";
+import Carousel from "./components/Carousel";
+import data from "./MockData";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Button color='primary'>
-        hello
-      </Button>
-      <GridItem
-        media='https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US'
-        url='https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US'
-        title='Rap Life'
-        subTitle='Apple Music Hip-Hop'
+      {/* <GridItem1
+        media="https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US"
+        url="https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US"
+        title="Rap Life"
+        subTitle="Apple Music Hip-Hop"
       />
+      <GridItem2
+        media="https://is5-ssl.mzstatic.com/image/thumb/Features126/v4/93/e2/bc/93e2bc04-89d6-2ee0-f618-ebebb497324f/U0gtTVMtV1ctTk1ELVByb3llY3RfSG90X0dpcmwtQURBTV9JRD0xMDUzMTY1ODU3LnBuZw.png/1200x688sr.webp"
+        url="https://is5-ssl.mzstatic.com/image/thumb/Features126/v4/93/e2/bc/93e2bc04-89d6-2ee0-f618-ebebb497324f/U0gtTVMtV1ctTk1ELVByb3llY3RfSG90X0dpcmwtQURBTV9JRD0xMDUzMTY1ODU3LnBuZw.png/1200x688sr.webp"
+        subTitle="Megan Thee Stallion and Dua Lipa team up for “Sweetest Pie,” in Spatial Audio."
+      />
+      <GridItem3
+        media="https://is5-ssl.mzstatic.com/image/thumb/Features124/v4/7c/6c/6b/7c6c6bfe-fa30-7d1b-acb2-c3d3d0a9507b/source/580x326sr.webp"
+        url="https://is5-ssl.mzstatic.com/image/thumb/Features124/v4/7c/6c/6b/7c6c6bfe-fa30-7d1b-acb2-c3d3d0a9507b/source/580x326sr.webp"
+        title="The Global Chart Show with Brooke Reese"
+      /> */}
+      <Carousel itemList={data} itemView={GridItem1} />
     </ThemeProvider>
   );
 }

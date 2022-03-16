@@ -1,14 +1,20 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const baseTheme = createTheme({
-    palette: {
-        primary: {
-            main: '#fa586a',
-        }
+  palette: {
+    primary: {
+      main: "rgba(0, 0, 0, 0.88)",
     },
-})
+    secondary: {
+      main: "#d60017",
+    },
+    subtitle: {
+      main: "#0000008f",
+    },
+  },
+});
 
-export default baseTheme
+export default baseTheme;
 
 // const darkTheme = createTheme(adaptV4Theme({
 //     ...baseTheme,
