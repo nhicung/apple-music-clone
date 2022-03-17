@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const GridItem = ({ title, media, url }) => {
+export const GridItem = ({ item: { title, media, url } }) => {
   const styles = useStyles();
   return (
     <Grid item direction="column" align="center" className={styles.gridItem}>

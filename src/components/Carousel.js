@@ -38,6 +38,13 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     position: "relative",
     paddingTop: 20,
+    "&:hover": {
+      cursor: "pointer",
+      "& $arrow": {
+        transform: "translate3d(0,0,50px)",
+        opacity: 1,
+      },
+    },
   },
   sectionTitle: {
     fontWeight: "bold",
@@ -49,6 +56,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     position: "absolute",
     top: "50%",
+    opacity: 0,
+    transition: " 0.3s ease-in",
   },
   gridList: {
     flexWrap: "nowrap",
@@ -118,19 +127,19 @@ const Slider = ({ itemList, itemView }) => {
       <div className={classes.contain}>
         <div className={classes.gridList} ref={galleryScrollerRef}>
           {itemList.map((item, idx) => (
-            <div style={{ height: "100% !important" }}>
+            <div>
               <ItemView item={item} />
             </div>
           ))}
         </div>
         <div className={classes.arrow}>
-          <div style={{ left: 0, top: "50%" }} onClick={prevPage}>
-            <IconButton style={{ color: "red" }}>
+          <div onClick={prevPage}>
+            <IconButton size="large">
               <ArrowBackIosIcon />
             </IconButton>
           </div>
-          <div style={{ right: 0, top: "50%" }} onClick={nextPage}>
-            <IconButton style={{ color: "red" }}>
+          <div onClick={nextPage}>
+            <IconButton size="large">
               <ArrowForwardIosIcon />
             </IconButton>
           </div>
