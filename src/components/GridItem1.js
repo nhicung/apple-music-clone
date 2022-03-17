@@ -11,10 +11,11 @@ const useStyles = makeStyles(() => ({
     listStyle: "none",
     height: "auto",
     display: "inline-block",
+    padding: 20,
   },
   frame: {
     display: "inline-block",
-    // position: "relative",
+    position: "relative",
     "&:hover": {
       cursor: "pointer",
       "& $buttonGroup": {
@@ -26,6 +27,7 @@ const useStyles = makeStyles(() => ({
   pic: {
     height: "auto",
     maxWidth: "100%",
+    borderRadius: 6,
   },
   description: {
     paddingTop: 10,
@@ -38,10 +40,10 @@ const useStyles = makeStyles(() => ({
   },
   buttonGroup: {
     position: "absolute !important",
-    color: "grey",
+    color: "grey !important",
     opacity: 0,
     bottom: "3%",
-    transition: "0.3s",
+    transition: "0.3s !important",
   },
   playButton: {
     left: "3%",

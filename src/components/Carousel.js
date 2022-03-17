@@ -19,6 +19,16 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 50,
+    // "& > span": {
+    //   position: "absolute",
+    //   transform: "translateY(-50%)",
+    //   height: "30px",
+    //   width: "30px",
+    //   borderRadius: "2px",
+    //   backgroundPosition: "50% 50%",
+    //   backgroundRepeat: "no-repeat",
+    //   zIndex: "1",
+    // },
   },
   contain: {
     width: "100%",
@@ -26,22 +36,19 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    // position: "relative",
+    position: "relative",
     paddingTop: 20,
-    "& > span": {
-      position: "absolute",
-      transform: "translateY(-50%)",
-      height: "30px",
-      width: "30px",
-      borderRadius: "2px",
-      backgroundPosition: "50% 50%",
-      backgroundRepeat: "no-repeat",
-      zIndex: "1",
-    },
   },
   sectionTitle: {
     fontWeight: "bold",
     fontSize: 35,
+  },
+  arrow: {
+    width: "100%",
+    justifyContent: "space-between",
+    display: "flex",
+    position: "absolute",
+    top: "50%",
   },
   gridList: {
     flexWrap: "nowrap",
@@ -50,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     display: "-webkit-inline-box",
     whiteSpace: "nowrap",
     overflow: "auto",
+    gridRow: 1,
   },
   title: {
     color: "white",
@@ -115,16 +123,18 @@ const Slider = ({ itemList, itemView }) => {
             </div>
           ))}
         </div>
-        <span style={{ left: 0, top: "50%" }} onClick={prevPage}>
-          <IconButton style={{ color: "red" }}>
-            <ArrowBackIosIcon />
-          </IconButton>
-        </span>
-        <span style={{ right: 0, top: "50%" }} onClick={nextPage}>
-          <IconButton style={{ color: "red" }}>
-            <ArrowForwardIosIcon />
-          </IconButton>
-        </span>
+        <div className={classes.arrow}>
+          <div style={{ left: 0, top: "50%" }} onClick={prevPage}>
+            <IconButton style={{ color: "red" }}>
+              <ArrowBackIosIcon />
+            </IconButton>
+          </div>
+          <div style={{ right: 0, top: "50%" }} onClick={nextPage}>
+            <IconButton style={{ color: "red" }}>
+              <ArrowForwardIosIcon />
+            </IconButton>
+          </div>
+        </div>
       </div>
     </div>
   );
