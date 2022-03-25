@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { makeStyles } from "@mui/styles";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
     overflow: "auto",
     gridRow: 1,
+    scrollBehavior: "smooth"
   },
   title: {
     color: "white",
@@ -84,29 +85,40 @@ const Slider = ({ itemList, itemView }) => {
   const classes = useStyles();
   const galleryScrollerRef = useRef(null);
   const ItemView = itemView;
+  // const elem = document.getElementById("item");
+  // const rect = elem.getBoundingClientRect();
+
+  // console.log(rect)
+
+  // const inputRef = useRef(null);
 
   const nextPage = () => {
     galleryScrollerRef.current.scrollBy(
-      galleryScrollerRef.current.offsetWidth - 15,
+      galleryScrollerRef.current.offsetWidth,
       0
     );
   };
 
   const prevPage = () => {
     galleryScrollerRef.current.scrollBy(
-      -(galleryScrollerRef.current.offsetWidth - 15),
+      -(galleryScrollerRef.current.offsetWidth),
       0
     );
   };
+
+  console.log(nextPage)
+  // console.log(inputRef.current.getBoundingClientRect());
 
   return (
     <div className={classes.root}>
       <div className={classes.contain}>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, Scrollbar, A11y, Mousewheel]}
           spaceBetween={50}
+          cssMode={true}
           slidesPerView={3}
           scrollbar={{ draggable: true }}
+          mousewheel={true}
           navigation={true}
           pagination={{
             clickable: true,
