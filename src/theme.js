@@ -11,6 +11,9 @@ const baseTheme = createTheme({
     subtitle: {
       main: "#0000008f",
     },
+    focus: {
+      main: "rgba(214,0,23,0.6)",
+    },
   },
 });
 

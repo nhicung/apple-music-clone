@@ -4,6 +4,7 @@ import GridItem1 from "./components/GridItem1";
 import GridItem2 from "./components/GridItem2";
 import GridItem3 from "./components/GridItem3";
 import Carousel from "./components/Carousel";
+import SideBar from "./components/SideBar";
 import data from "./MockData";
 
 function App() {
@@ -30,16 +31,22 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <GridItem1 item={item1} />
+        <SideBar>
+          </SideBar>
       </div>
       <div>
-        <GridItem2 item={item2} />
-      </div>
-      <div>
-        <GridItem3 item={item3} />
-      </div>
-      <div>
-        <Carousel itemList={data} itemView={GridItem1} />
+        <div>
+          <GridItem1 item={item1} />
+        </div>
+        <div>
+          <GridItem2 item={item2} />
+        </div>
+        <div>
+          <GridItem3 item={item3} />
+        </div>
+        <div>
+          <Carousel itemList={data} itemView={GridItem1} />
+        </div>
       </div>
     </ThemeProvider>
   );
