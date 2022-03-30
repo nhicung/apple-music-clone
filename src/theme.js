@@ -14,6 +14,12 @@ const baseTheme = createTheme({
     focus: {
       main: "rgba(214,0,23,0.6)",
     },
+    lighter: {
+      main: "rgba(0, 0, 0, 0.56)",
+    },
+    sidebar: {
+      main: "rgba(60, 60, 67, 0.03);",
+    },
   },
 });
 

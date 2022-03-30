@@ -8,9 +8,17 @@ export const SearchBar = () => {
   return (
     <Autocomplete
       id="country-select-demo"
-      sx={{ width: 200, margin: "0 auto" }}
+      sx={{
+        paddingLeft: "25px",
+        paddingRight: "25px",
+        minHeight: "54px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
       options={countries}
       autoHighlight
+      freeSolo
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box component="li" {...props}>
@@ -24,15 +32,32 @@ export const SearchBar = () => {
         <TextField
           {...params}
           color="focus"
+          style={{ height: "32px" }}
           label={
-            <div style={{ fontSize: 15, display: "flex" }}>
-              <SearchIcon sx={{ padding: "3px" }} />
+            <div style={{ fontSize: 12, display: "flex" }}>
+              <SearchIcon
+                sx={{
+                  padding: "3px",
+                  transform: "translateY(-10%)",
+                  marginLeft: "5px",
+                  marginRight: "3px",
+                }}
+              />
               Search
             </div>
           }
+          InputLabelProps={{
+            style: {
+              height: "32px",
+              fontSize: "12px",
+              top: "80%",
+              transform: "translateY(-50%)",
+            },
+          }}
           inputProps={{
             ...params.inputProps,
-            autoComplete: "new-password", // disable autocomplete and autofill
+            autoComplete: "new-password",
+            style: { padding: "0 14px", fontSize: "12px" },
           }}
         />
       )}
