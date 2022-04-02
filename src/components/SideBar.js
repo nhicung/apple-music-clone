@@ -1,15 +1,13 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  Box,
+  Drawer,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+} from "@mui/material/";
+import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material/";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import GridViewIcon from "@mui/icons-material/GridView";
 import SensorsIcon from "@mui/icons-material/Sensors";
@@ -41,24 +39,8 @@ const sideBarTitle = [
   },
 ];
 
-export default function PermanentDrawerLeft() {
+export const SideBar = () => {
   return (
-    <Box sx={{ display: "flex", color: "sidebar.main" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: `calc(100% - ${drawerWidth}px)`,
-          ml: `${drawerWidth}px`,
-          height: "55px",
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Permanent drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -66,6 +48,7 @@ export default function PermanentDrawerLeft() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            backgroundColor: "sidebar.main"
           },
         }}
         variant="permanent"
@@ -130,12 +113,8 @@ export default function PermanentDrawerLeft() {
           </Typography>
         </div>
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-      >
-        <Toolbar />
-      </Box>
-    </Box>
   );
 }
+
+export default SideBar;
+

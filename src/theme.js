@@ -18,7 +18,7 @@ const baseTheme = createTheme({
       main: "rgba(0, 0, 0, 0.56)",
     },
     sidebar: {
-      main: "rgba(60, 60, 67, 0.03);",
+      main: "#fafafa",
     },
   },
 });

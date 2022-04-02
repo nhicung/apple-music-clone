@@ -4,7 +4,7 @@ import GridItem1 from "./components/GridItem1";
 import GridItem2 from "./components/GridItem2";
 import GridItem3 from "./components/GridItem3";
 import Carousel from "./components/Carousel";
-import SideBar from "./components/SideBar";
+import Navigation from "./components/Navigation";
 import data from "./MockData";
 
 function App() {
@@ -31,8 +31,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <SideBar>
-          </SideBar>
+        <Navigation/>
       </div>
       <div>
         <div>
