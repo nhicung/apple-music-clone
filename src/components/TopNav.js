@@ -1,31 +1,45 @@
 import * as React from "react";
-import { Toolbar, AppBar, Icon, Slider, Stack, Grid } from "@mui/material/";
+import {
+  Toolbar,
+  AppBar,
+  Icon,
+  Slider,
+  Stack,
+  Grid,
+  Box,
+} from "@mui/material/";
 import AppleIcon from "@mui/icons-material/Apple";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded";
 import ListRoundedIcon from "@mui/icons-material/ListRounded";
 import MusicPlayer from "./MusicPlayer";
-import { Box } from "@mui/material/";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import RepeatRoundedIcon from "@mui/icons-material/RepeatRounded";
-import ShuffleRoundedIcon from "@mui/icons-material/ShuffleRounded";
 
 const drawerWidth = 260;
 
 const TopBar = () => {
+  const [value, setValue] = React.useState(30);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <AppBar
       position="fixed"
+      elevation={0}
       sx={{
         width: `calc(100% - ${drawerWidth}px)`,
         ml: `${drawerWidth}px`,
         height: "55px",
-        background: "white",
       }}
     >
-      <Toolbar style={{ minHeight: "55px", padding:0 }}>
+      <Toolbar
+        style={{
+          minHeight: "55px",
+          padding: 0,
+          backgroundColor: "#fafafa",
+          borderBottom: "solid rgba(0, 0, 0, 0.2) 0.5px",
+        }}
+      >
         <Grid container sx={{ alignItems: "center" }}>
           <Grid
             item
@@ -40,7 +54,6 @@ const TopBar = () => {
           </Grid>
           <Grid
             item
-            xs
             sx={{
               //   width: "auto",
               //   position: "absolute",
@@ -50,8 +63,9 @@ const TopBar = () => {
               //   right: "5px",
               boxShadow: "inset 0 0 0 0.5px rgba(0, 0, 0, 0.2)",
               height: "44px",
-              width: "100%",
-              maxWidth: "900px",
+              // width: "100%",
+              // maxWidth: "900px",
+              width: "40%",
               gridArea: "1/2/2/2",
               justifySelf: "start",
               display: "flex",
@@ -104,14 +118,53 @@ const TopBar = () => {
             //   right: 0,
             //   paddingRight: "12px",
             // }}
+            sx={{ display: "flex" }}
           >
-            <Icon color="secondary">
-              <AccountCircleIcon
+            <Grid
+              container
+              sx={{
+                alignItems: "center",
+                display: "flex",
+              }}
+            >
+              <Grid
+                item
                 sx={{
-                  fontSize: "26px",
+                  width: "75%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
                 }}
-              />
-            </Icon>
+              >
+                <Box sx={{ width: 110, color: "black", opacity: 0.5 }}>
+                  <Stack spacing={2} direction="row" alignItems="center">
+                    <VolumeUpRoundedIcon sx={{ fontSize: "18px" }} />
+                    <Slider
+                      aria-label="Volume"
+                      size="small"
+                      value={value}
+                      onChange={handleChange}
+                    />
+                  </Stack>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                xs
+                sx={{ color: "black", opacity: 0.5, display: "flex" }}
+              >
+                <ListRoundedIcon />
+              </Grid>
+              <Grid item xs>
+                <Icon color="secondary">
+                  <AccountCircleIcon
+                    sx={{
+                      fontSize: "26px",
+                    }}
+                  />
+                </Icon>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Toolbar>

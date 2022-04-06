@@ -14,7 +14,12 @@ export const MusicPlayer = () => {
         opacity: 0.5,
       }}
     >
-      <Stack spacing={1} direction="row" alignItems="center">
+      <Stack
+        spacing={1}
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+      >
         <ShuffleRoundedIcon sx={{ fontSize: "15px" }} />
         <SkipPreviousIcon sx={{ fontSize: "32px" }} />
         <PlayArrowIcon sx={{ fontSize: "32px" }} />
@@ -22,6 +27,7 @@ export const MusicPlayer = () => {
         <RepeatRoundedIcon sx={{ fontSize: "15px" }} />
       </Stack>
     </Box>
-  );};
+  );
+};
 
 export default MusicPlayer;
