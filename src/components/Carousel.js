@@ -6,13 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import {
-  ImageList,
-  ImageListItem,
-  Typography,
-  IconButton,
-  useMediaQuery,
-} from "@mui/material/";
+import { IconButton } from "@mui/material/";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
@@ -67,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
     overflow: "auto",
     gridRow: 1,
-    scrollBehavior: "smooth"
+    scrollBehavior: "smooth",
   },
   title: {
     color: "white",
@@ -101,12 +95,12 @@ const Slider = ({ itemList, itemView }) => {
 
   const prevPage = () => {
     galleryScrollerRef.current.scrollBy(
-      -(galleryScrollerRef.current.offsetWidth),
+      -galleryScrollerRef.current.offsetWidth,
       0
     );
   };
 
-  console.log(nextPage)
+  console.log(nextPage);
   // console.log(inputRef.current.getBoundingClientRect());
 
   return (

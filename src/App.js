@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@mui/material/styles";
+import Container from "@mui/material/Container";
 import theme from "./theme";
 import GridItem1 from "./components/GridItem1";
 import GridItem2 from "./components/GridItem2";
@@ -31,9 +32,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <Navigation/>
+        <Navigation />
       </div>
-      <div>
+      <Container display="flex" justifyContent="center">
         <div>
           <GridItem1 item={item1} />
         </div>
@@ -46,7 +47,7 @@ function App() {
         <div>
           <Carousel itemList={data} itemView={GridItem1} />
         </div>
-      </div>
+      </Container>
     </ThemeProvider>
   );
 }
