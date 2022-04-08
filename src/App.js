@@ -22,6 +22,9 @@ function App() {
     url: "https://is5-ssl.mzstatic.com/image/thumb/Features126/v4/93/e2/bc/93e2bc04-89d6-2ee0-f618-ebebb497324f/U0gtTVMtV1ctTk1ELVByb3llY3RfSG90X0dpcmwtQURBTV9JRD0xMDUzMTY1ODU3LnBuZw.png/1200x688sr.webp",
     subTitle:
       "Megan Thee Stallion and Dua Lipa team up for “Sweetest Pie,” in Spatial Audio.",
+    subHead: "Updated Playlist",
+    line1: "New Music Dua",
+    line2: "Apple Music Hits",
   };
   const item3 = {
     media:

@@ -61,10 +61,45 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const GridItem = ({ item: { subTitle, media, url } }) => {
+export const GridItem = ({
+  item: { subTitle, media, url, subHead, line1, line2 },
+}) => {
   const styles = useStyles();
   return (
-    <Grid item direction="column" align="center" className={styles.gridItem}>
+    <Grid item direction="column" className={styles.gridItem}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          lineHeight: 1.5,
+          marginBottom: "6px",
+        }}
+      >
+        <Typography
+          sx={{
+            textTransform: "uppercase",
+            color: "lighter.main",
+            fontSize: "11px",
+          }}
+        >
+          {subHead}
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "17px",
+          }}
+        >
+          {line1}
+        </Typography>
+        <Typography
+          sx={{
+            color: "lighter.main",
+            fontSize: "17px",
+          }}
+        >
+          {line2}
+        </Typography>
+      </div>
       <Link href={url} style={{ textDecoration: "none" }}>
         <div className={styles.frame}>
           <img href={url} src={media} alt={subTitle} className={styles.pic} />
@@ -107,6 +142,9 @@ GridItem.propTypes = {
   media: PropTypes.string.isRequired,
   url: PropTypes.string,
   textColor: PropTypes.string.isRequired,
+  subHead: PropTypes.string.isRequired,
+  line1: PropTypes.string.isRequired,
+  line2: PropTypes.string.isRequired,
 };
 
 export default GridItem;
