@@ -45,7 +45,7 @@ const TopBar = () => {
             item
             sx={{
               width: "30%",
-              display: "flex",
+              display: { xs: "none", md: "flex" },
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -55,20 +55,18 @@ const TopBar = () => {
           <Grid
             item
             sx={{
-              //   width: "auto",
-              //   position: "absolute",
-              //   top: "5px",
-              zIndex: " 1",
-              //   left: "5px",
-              //   right: "5px",
+              position: { xs: "absolute", md: "inherit" },
+              top: { xs: "5px" },
+              left: { xs: "5px" },
+              right: { xs: "5px" },
+              maxWidth: { xs: "900px" },
               boxShadow: "inset 0 0 0 0.5px rgba(0, 0, 0, 0.2)",
               height: "44px",
-              // width: "100%",
-              // maxWidth: "900px",
-              width: "40%",
-              gridArea: "1/2/2/2",
-              justifySelf: "start",
+              zIndex: " 1",
               display: "flex",
+              width: { md: "40%" },
+              gridArea: { md: "1/2/2/2" },
+              justifySelf: { md: "start" },
             }}
           >
             <div style={{ width: "fit-content" }}>
@@ -107,19 +105,7 @@ const TopBar = () => {
               </Icon>
             </div>
           </Grid>
-          <Grid
-            item
-            xs
-            // style={{
-            //   width: "auto",
-            //   position: "absolute",
-            //   top: "14px",
-            //   zIndex: 3,
-            //   right: 0,
-            //   paddingRight: "12px",
-            // }}
-            sx={{ display: "flex" }}
-          >
+          <Grid item xs sx={{ display: "flex" }}>
             <Grid
               container
               sx={{
@@ -133,7 +119,7 @@ const TopBar = () => {
                   width: "75%",
                   alignItems: "center",
                   justifyContent: "center",
-                  display: "flex",
+                  display: { xs: "none", md: "flex" },
                 }}
               >
                 <Box sx={{ width: 110, color: "black", opacity: 0.5 }}>
@@ -151,11 +137,24 @@ const TopBar = () => {
               <Grid
                 item
                 xs
-                sx={{ color: "black", opacity: 0.5, display: "flex" }}
+                sx={{
+                  color: "black",
+                  opacity: 0.5,
+                  display: { xs: "none", md: "flex" },
+                }}
               >
                 <ListRoundedIcon />
               </Grid>
-              <Grid item xs>
+              <Grid
+                item
+                xs
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                  paddingRight: "20px",
+                }}
+              >
                 <Icon color="secondary">
                   <AccountCircleIcon
                     sx={{

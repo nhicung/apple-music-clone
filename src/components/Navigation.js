@@ -1,19 +1,8 @@
 import * as React from "react";
-import {
-  Box,
-  Drawer,
-  CssBaseline,
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@mui/material/";
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material/";
+import { Box, CssBaseline } from "@mui/material/";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import GridViewIcon from "@mui/icons-material/GridView";
 import SensorsIcon from "@mui/icons-material/Sensors";
-import AppleMusicLogo from "../images/apple-music.svg";
-import AppleMusicCircle from "../images/apple-music-circle.png";
-import CallMadeIcon from "@mui/icons-material/CallMade";
 import SideBar from "./SideBar";
 import TopNav from "./TopNav";
 

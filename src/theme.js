@@ -21,6 +21,15 @@ const baseTheme = createTheme({
       main: "#fafafa",
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1000,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 export default baseTheme;
