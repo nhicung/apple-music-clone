@@ -8,6 +8,8 @@ import Carousel from "./components/Carousel";
 import Navigation from "./components/Navigation";
 import data from "./MockData";
 
+const drawerWidth = 260;
+
 function App() {
   const item1 = {
     title: "Rap Life",
@@ -37,7 +39,14 @@ function App() {
       <div>
         <Navigation />
       </div>
-      <Container display="flex" justifyContent="center">
+      <Container
+        display="flex"
+        justifyContent="center"
+        sx={{
+          width: `calc(100% - ${drawerWidth}px)`,
+          ml: `${drawerWidth}px`,
+        }}
+      >
         <div>
           <GridItem1 item={item1} />
         </div>

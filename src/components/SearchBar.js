@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import {Autocomplete, IconButton} from "@mui/material/";
+import { Autocomplete, IconButton } from "@mui/material/";
 import SearchIcon from "@mui/icons-material/Search";
 
 export const SearchBar = () => {
@@ -9,8 +9,8 @@ export const SearchBar = () => {
     <Autocomplete
       id="country-select-demo"
       sx={{
-        paddingLeft: "25px",
-        paddingRight: "25px",
+        pl: "25px",
+        pr: "25px",
         minHeight: "54px",
         display: "flex",
         flexDirection: "column",
@@ -39,8 +39,8 @@ export const SearchBar = () => {
                 sx={{
                   padding: "3px",
                   transform: "translateY(-10%)",
-                  marginLeft: "5px",
-                  marginRight: "3px",
+                  ml: "5px",
+                  mr: "3px",
                 }}
               />
               Search

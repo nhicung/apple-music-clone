@@ -47,7 +47,7 @@ export const SideBar = () => {
       variant="permanent"
       anchor="left"
     >
-      <Toolbar variant="dense" sx={{ marginTop: "4px", minHeight: "48px" }}>
+      <Toolbar variant="dense" sx={{ mt: "4px", minHeight: "48px" }}>
         <img width={85} src={AppleMusicLogo} style={{ marginLeft: "5px" }} />
       </Toolbar>
       <SearchBar />

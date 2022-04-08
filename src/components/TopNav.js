@@ -152,7 +152,7 @@ const TopBar = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-end",
-                  paddingRight: "20px",
+                  pr: "20px",
                 }}
               >
                 <Icon color="secondary">
