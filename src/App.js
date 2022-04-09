@@ -38,6 +38,8 @@ function App() {
   const playlistHeader = {
     image:
       "https://is5-ssl.mzstatic.com/image/thumb/Video124/v4/2a/85/e3/2a85e3b4-5503-29fa-ca4d-f6afd9a98f1c/Job14d62ca2-3fc9-4292-a4f8-54dbb0859c94-108238143-PreviewImage_PreviewImageIntermediate_preview_image_nonvideo-Time1607894324638.png/540x540cc.webp",
+    imageLayer:
+      "https://is3-ssl.mzstatic.com/image/thumb/Features114/v4/24/12/9b/24129b24-6f0e-6c28-22d2-cbc248cc0a32/U0RTLU1TLVdXLUFsaXN0UG9wLUFEQU1fSUQ9MTAwNDc3NjIwMi5wbmc.png/44x44br-60.jpg",
     title: "A-List Pop",
     category: "Apple Music Pop",
     subtitle: "updated yesterday",
@@ -74,9 +76,10 @@ function App() {
         style={{
           width: `calc(100% - ${drawerWidth}px)`,
           marginLeft: `${drawerWidth}px`,
+          padding: "40px",
         }}
       >
-        <PlaylistHeader />
+        <PlaylistHeader item={playlistHeader} />
       </div>
     </ThemeProvider>
   );

@@ -1,20 +1,21 @@
 import * as React from "react";
-import {
-  Toolbar,
-  AppBar,
-  Icon,
-  Slider,
-  Stack,
-  Grid,
-  Box,
-} from "@mui/material/";
-import AppleIcon from "@mui/icons-material/Apple";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded";
-import ListRoundedIcon from "@mui/icons-material/ListRounded";
-import MusicPlayer from "./MusicPlayer";
+import { Grid, Typography, Button, Stack, IconButton } from "@mui/material/";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
+import PopUp from "./PopUp";
 
-const PlaylistHeader = ({ image, title, category, subtitle, description }) => {
+const PlaylistHeader = ({
+  item: { image, imageLayer, title, category, subtitle, description },
+}) => {
+  const charLimit = 200;
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Grid container sx={{ alignItems: "center" }}>
       <Grid
@@ -45,7 +46,7 @@ const PlaylistHeader = ({ image, title, category, subtitle, description }) => {
               opacity: 0.4,
               zIndex: 1,
             }}
-            src="https://is3-ssl.mzstatic.com/image/thumb/Features114/v4/24/12/9b/24129b24-6f0e-6c28-22d2-cbc248cc0a32/U0RTLU1TLVdXLUFsaXN0UG9wLUFEQU1fSUQ9MTAwNDc3NjIwMi5wbmc.png/44x44br-60.jpg"
+            src={imageLayer}
           />
           <div
             style={{
@@ -63,7 +64,7 @@ const PlaylistHeader = ({ image, title, category, subtitle, description }) => {
             }}
           >
             <img
-              src="https://is5-ssl.mzstatic.com/image/thumb/Video124/v4/2a/85/e3/2a85e3b4-5503-29fa-ca4d-f6afd9a98f1c/Job14d62ca2-3fc9-4292-a4f8-54dbb0859c94-108238143-PreviewImage_PreviewImageIntermediate_preview_image_nonvideo-Time1607894324638.png/540x540cc.webp"
+              src={image}
               width="270px"
               height="270px"
               role="presentation"
@@ -74,7 +75,105 @@ const PlaylistHeader = ({ image, title, category, subtitle, description }) => {
           </div>
         </div>
       </Grid>
-      <Grid item>Example</Grid>
+      <Grid
+        item
+        sm
+        sx={{
+          pl: "34px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            height: "100%",
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 600, fontSize: "26px", mt: "41px" }}
+          >
+            {title}
+          </Typography>
+          <Typography
+            sx={{ width: "100%", fontSize: "26px", color: "secondary.main" }}
+          >
+            {category}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "12px",
+              color: "lighter.main",
+              textTransform: "uppercase",
+            }}
+          >
+            {subtitle}
+          </Typography>
+          <div
+            style={{
+              marginTop: "23px",
+              maxWidth: "440px",
+            }}
+          >
+            <div style={{ position: "relative" }}>
+              <Typography
+                sx={{
+                  fontSize: "13px",
+                }}
+              >
+                {description.substring(0, charLimit) +
+                  (description.length > charLimit ? "..." : "")}
+              </Typography>
+              <Button
+                sx={{
+                  mb: "-5px",
+                  position: "absolute",
+                  textDecoration: "none",
+                  lineHeight: "inherit",
+                  bottom: 0,
+                  zIndex: 1,
+                  right: 0,
+                  fontSize: "12px",
+                  fontWeight: 550,
+                }}
+                fontSize="inherit"
+                size="small"
+                onClick={handleOpen}
+              >
+                More
+              </Button>
+            </div>
+          </div>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            spacing={2}
+            sx={{
+              width: "100%",
+              marginTop: "23px",
+            }}
+          >
+            <Button
+              variant="contained"
+              color="secondary"
+              size="small"
+              sx={{
+                textTransform: "none",
+              }}
+              startIcon={<PlayArrowIcon />}
+            >
+              Preview
+            </Button>
+            <IconButton color="secondary">
+              <MoreHorizRoundedIcon />
+            </IconButton>
+          </Stack>
+        </div>
+      </Grid>
+      <PopUp open={open} onClose={handleClose} />
     </Grid>
   );
 };
