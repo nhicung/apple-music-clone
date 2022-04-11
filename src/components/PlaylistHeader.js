@@ -173,7 +173,13 @@ const PlaylistHeader = ({
           </Stack>
         </div>
       </Grid>
-      <PopUp open={open} onClose={handleClose} />
+      <PopUp
+        open={open}
+        onClose={handleClose}
+        title={title}
+        category={category}
+        description={description}
+      />
     </Grid>
   );
 };
