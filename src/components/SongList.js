@@ -1,12 +1,15 @@
 import * as React from "react";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableContainer,
+  TableHead,
+  TableRow,
+  IconButton,
+} from "@mui/material/";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Divider from "@mui/material/Divider";
+import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 
 const columns = [
   { id: "song", label: "Song", minWidth: "42%" },
@@ -130,15 +133,26 @@ export default function StickyHeadTable() {
         <Table
           stickyHeader
           aria-label="sticky table"
+          size="small"
           sx={{
             [`& .${tableCellClasses.root}`]: {
               borderBottom: "none",
               paddingLeft: "20px",
+              fontSize: "13px",
+              color: "lighter.main",
             },
           }}
         >
           <TableHead>
-            <TableRow>
+            <TableRow
+              sx={{
+                "& th": {
+                  fontSize: "12px !important",
+                  color: "lighter.main",
+                  fontWeight: 600,
+                },
+              }}
+            >
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
@@ -163,14 +177,31 @@ export default function StickyHeadTable() {
                       display: "flex",
                       alignItems: "center",
                       borderBottom: "none",
+                      color: "black !important",
                     }}
                   >
-                    <img src={row.image} height="40" />
+                    <div style={{ marginRight: "20px" }}>
+                      <img
+                        src={row.image}
+                        height="40"
+                        style={{ borderRadius: "3px" }}
+                      />
+                    </div>
                     {row.song}
                   </TableCell>
                   <TableCell>{row.artist}</TableCell>
                   <TableCell>{row.album}</TableCell>
-                  <TableCell>{row.time}</TableCell>
+                  <TableCell
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    {row.time}
+                    <IconButton fontSize="small" color="secondary">
+                      <MoreHorizRoundedIcon fontSize="small" />
+                    </IconButton>
+                  </TableCell>
                 </TableRow>
               );
             })}
