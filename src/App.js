@@ -4,7 +4,9 @@ import theme from "./theme";
 import GridItem1 from "./components/GridItem1";
 import GridItem2 from "./components/GridItem2";
 import GridItem3 from "./components/GridItem3";
+import GridItem4 from "./components/GridItem4";
 import Carousel from "./components/Carousel";
+import GridList from "./components/GridList";
 import Navigation from "./components/Navigation";
 import data from "./MockData";
 
@@ -34,6 +36,9 @@ function App() {
     url: "https://is5-ssl.mzstatic.com/image/thumb/Features124/v4/7c/6c/6b/7c6c6bfe-fa30-7d1b-acb2-c3d3d0a9507b/source/580x326sr.webp",
     title: "The Global Chart Show with Brooke Reese",
   };
+  const item4 ={
+    title:"Browse by Category"
+  }
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -57,7 +62,13 @@ function App() {
           <GridItem3 item={item3} />
         </div>
         <div>
+          <GridItem4 item={item4} />
+        </div>
+        <div>
           <Carousel itemList={data} itemView={GridItem1} />
+        </div>
+        <div>
+          <GridList itemList={data} itemView={GridItem1} col={3} />
         </div>
       </Container>
     </ThemeProvider>
