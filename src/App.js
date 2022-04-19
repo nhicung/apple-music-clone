@@ -4,6 +4,7 @@ import theme from "./theme";
 import GridItem1 from "./components/GridItem1";
 import GridItem2 from "./components/GridItem2";
 import GridItem3 from "./components/GridItem3";
+import GridItem4 from "./components/GridItem4";
 import Carousel from "./components/Carousel";
 import Navigation from "./components/Navigation";
 import data from "./MockData";
@@ -34,6 +35,17 @@ function App() {
     url: "https://is5-ssl.mzstatic.com/image/thumb/Features124/v4/7c/6c/6b/7c6c6bfe-fa30-7d1b-acb2-c3d3d0a9507b/source/580x326sr.webp",
     title: "The Global Chart Show with Brooke Reese",
   };
+  const item5 = {
+    media:
+      "https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/f1/aa/98/f1aa980c-00c9-7dfd-f1b6-7f061620bbee/Job33d52212-ce33-4130-91aa-cc08079c6422-108154974-PreviewImage_PreviewImageIntermediate_preview_image_nonvideo-Time1607024451977.png/1200x688sr-60.jpg",
+    url: "",
+    title: "Music 1",
+    subtitle:"The new music that matters.",
+    schedule:"LIVE · 10AM - 12PM",
+    event:"The Apple Music 1 List",
+    description:"Hear our current obsessions and new discoveries making waves.",
+    background:"https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/f1/aa/98/f1aa980c-00c9-7dfd-f1b6-7f061620bbee/Job33d52212-ce33-4130-91aa-cc08079c6422-108154974-PreviewImage_PreviewImageIntermediate_preview_image_nonvideo-Time1607024451977.png/88x50br-60.jpg"
+  };
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -55,6 +67,9 @@ function App() {
         </div>
         <div>
           <GridItem3 item={item3} />
+        </div>
+        <div>
+          <GridItem4 item={item5} />
         </div>
         <div>
           <Carousel itemList={data} itemView={GridItem1} />
