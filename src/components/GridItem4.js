@@ -24,29 +24,6 @@ const useStyles = makeStyles(() => ({
         borderRadius: 8,
         transition: " .1s ease-in",
     },
-    // title: {
-    //     display: "flex",
-    //     justifyContent: "flex-start",
-    //     fontSize: 14,
-    //     fontWeight: 300,
-    //     color: "white",
-    //     paddingLeft: 10,
-    // },
-    // textGroup: {
-    //     left: 0,
-    //     right: 0,
-    //     minHeight: "100px",
-    //     transition: "0.3s",
-    //     alignItems: "flex-end",
-    //     whiteSpace: "normal",
-    //     // justifyContent: "space-between",
-    //     display: "block",
-    //     position: "absolute",
-    //     top: 0,
-    //     bottom: 0,
-    //     backgroundSize: "cover",
-    //     backgroundPosition: "center bottom",
-    // },
     wrapper: {
         position: "relative",
         display: "flex",
@@ -93,7 +70,6 @@ export const GridItem = ({
             <div
                 style={{
                     display: "flex",
-                    // flexDirection: "column",
                     justifyContent: "space-between",
                     lineHeight: 1.5,
                     marginBottom: "13px",
@@ -143,24 +119,10 @@ export const GridItem = ({
                             className={styles.pic}
                         />
                     </div>
-                    {/* <Box
-                        sx={{
-                            opacity: 1,
-                            background:
-                                "linear-gradient(transparent 0,rgba(0,0,0,.4))",
-                            height: 300,
-                            width: "100%",
-                            position: "absolute",
-                            bottom: ".5%",
-                            left: 0,
-                            right: 0,
-                        }}
-                    > */}
                     <div
                         href={url}
                         target="blank"
                         style={{
-                            // position: "absolute",
                             width: "100%",
                             backgroundImage: `url(${background})`,
                             padding: "14px 12px 16px 12px",
