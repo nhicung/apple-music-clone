@@ -67,7 +67,10 @@ function App() {
           <GridItem2 item={item2} />
         </div>
         <div>
-          <GridItem3 item={item3} />
+          <GridItem3 item={item3} titlePosition="atBottom" />
+        </div>
+        <div>
+          <GridItem3 item={item3} titlePosition="layOnTop" />
         </div>
         <div>
           <Carousel itemList={data} itemView={GridItem1} />
