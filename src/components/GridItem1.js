@@ -56,10 +56,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const GridItem = ({ item: { title, subtitle, media, url } }) => {
+export const GridItem = ({ item: { title, subtitle, media, url },col }) => {
   const styles = useStyles();
   return (
-    <Grid item direction="column" align="center" className={styles.gridItem}>
+    <Grid xs={12/col} item direction="column" align="center" className={styles.gridItem}>
       <Link href={url} style={{ textDecoration: "none" }}>
         <div className={styles.frame}>
           <img href={url} src={media} alt={title} className={styles.pic} />
@@ -123,6 +123,7 @@ GridItem.propTypes = {
   media: PropTypes.string.isRequired,
   url: PropTypes.string,
   textColor: PropTypes.string.isRequired,
+  col: PropTypes.number.isRequired,
 };
 
 export default GridItem;
