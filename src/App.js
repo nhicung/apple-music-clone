@@ -6,6 +6,7 @@ import GridItem2 from "./components/GridItem2";
 import GridItem3 from "./components/GridItem3";
 import Carousel from "./components/Carousel";
 import Navigation from "./components/Navigation";
+import PlaylistHeader from "./components/PlaylistHeader";
 import data from "./MockData";
 
 const drawerWidth = 260;
@@ -34,6 +35,17 @@ function App() {
     url: "https://is5-ssl.mzstatic.com/image/thumb/Features124/v4/7c/6c/6b/7c6c6bfe-fa30-7d1b-acb2-c3d3d0a9507b/source/580x326sr.webp",
     title: "The Global Chart Show with Brooke Reese",
   };
+  const playlistHeader = {
+    image:
+      "https://is5-ssl.mzstatic.com/image/thumb/Video124/v4/2a/85/e3/2a85e3b4-5503-29fa-ca4d-f6afd9a98f1c/Job14d62ca2-3fc9-4292-a4f8-54dbb0859c94-108238143-PreviewImage_PreviewImageIntermediate_preview_image_nonvideo-Time1607894324638.png/540x540cc.webp",
+    imageLayer:
+      "https://is3-ssl.mzstatic.com/image/thumb/Features114/v4/24/12/9b/24129b24-6f0e-6c28-22d2-cbc248cc0a32/U0RTLU1TLVdXLUFsaXN0UG9wLUFEQU1fSUQ9MTAwNDc3NjIwMi5wbmc.png/44x44br-60.jpg",
+    title: "A-List Pop",
+    category: "Apple Music Pop",
+    subtitle: "updated yesterday",
+    description:
+      "“I think the song really shows off my honesty but also my energy,” Shawn Mendes tells Apple Music of “When You're Gone,” the new single that headlines A-List Pop this week. Originally written as a ballad on piano, it’s now a guitar-driven anthem, the Canadian singer-songwriter belting his way through a picture of love lost too soon. “Playing live shows is what I live for,” he says, “and this song was born to be played onstage.” Add A-List Pop to your library to stay up on the latest and greatest pop music.",
+  };
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -60,6 +72,15 @@ function App() {
           <Carousel itemList={data} itemView={GridItem1} />
         </div>
       </Container>
+      <div
+        style={{
+          width: `calc(100% - ${drawerWidth}px)`,
+          marginLeft: `${drawerWidth}px`,
+          padding: "40px",
+        }}
+      >
+        <PlaylistHeader item={playlistHeader} />
+      </div>
     </ThemeProvider>
   );
 }
