@@ -2,26 +2,31 @@ import React from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import AppleMusicLogo from "../images/apple-music.svg";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import MacScreenshot from "../images/MacScreenshot.webp";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        marginTop: theme.spacing(1),
         justifyContent: "center",
-        display: "flex",
-        height: "100vh",
+        height: "calc(100% - 55px)",
+        top: "55px",
+        paddingTop: "76px",
+        position: "fixed",
     },
     paper: {
         padding: theme.spacing(2),
-        // backgroundColor: "#000000",
-        // color: "#FFFFFF",
         align: "center",
         margin: "auto",
         paddingTop: "3%",
         boxShadow: "none",
+        maxWidth: "75%",
+        justifyContent: "center",
+        display: "flex",
     },
     container: {
         justifyContent: "center",
+        maxWidth: "75%",
     },
     header: {
         fontWeight: "bold",
@@ -32,14 +37,9 @@ const useStyles = makeStyles((theme) => ({
         },
         fontSize: "1.2rem",
     },
-    loginButton: {
+    button: {
         textTransform: "none",
-        width: "50%",
-        color: "white",
-        background: "#02AA02",
-        "&:hover": {
-            backgroundColor: "#017601",
-        },
+        width: "20%",
     },
 }));
 
@@ -55,50 +55,90 @@ const ListenNowPage = () => {
                     align="center"
                     className={classes.container}
                 >
-                    <Grid item xs={12} md={7} align="center">
+                    <Grid item xs={12} align="center">
                         <img
                             width={85}
                             src={AppleMusicLogo}
                             style={{ marginLeft: "5px" }}
                         />
                     </Grid>
-                    <Grid item xs={12} md={7} align="center">
+                    <Grid item xs={12} align="center">
                         <Typography
                             variant="h5"
-                            className={classes.textDescription}
+                            sx={{
+                                fontSize: "48px",
+                                lineHeight: 1.0834933333,
+                                fontWeight: 600,
+                                letterSpacing: " -.003em",
+                            }}
                         >
-                            Discover new music everyday.
+                            Discover new music every day.
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} md={7} align="center">
+                    <Grid
+                        item
+                        xs
+                        align="center"
+                        sx={{ m: "0 auto 15px", maxWidth: { xs: "440px" } }}
+                    >
                         <Typography
                             variant="h5"
-                            className={classes.textDescription}
+                            sx={{
+                                fontSize: "17px",
+                                lineHeight: 1.4118447059,
+                                fontWeight: 400,
+                                letterSpacing: 0,
+                            }}
                         >
                             Get playlists and albums inspired by the artists and
                             genres you're listening to. 1 month free, then
                             $9.99/month.
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} md={7} align="center">
+                    <Grid item xs={12} align="center">
                         <Button
                             variant="contained"
                             size="medium"
-                            className={classes.loginButton}
+                            className={classes.button}
                         >
-                            Try It Free
+                            <Typography
+                                sx={{
+                                    fontSize: "13px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
+                            >
+                                Try It Free
+                            </Typography>
                         </Button>
                     </Grid>
-                    <Grid item xs={12} md={7} align="center">
+                    <Grid item xs={12} align="center" sx={{ mt: "8px" }}>
                         <Button
-                            variant="contained"
+                            variant="text"
                             size="medium"
-                            className={classes.loginButton}
+                            className={classes.button}
                         >
-                            Learn More
+                            <Typography
+                                sx={{
+                                    fontSize: "13px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
+                            >
+                                Learn More
+                                <ArrowForwardIosIcon
+                                    sx={{ fontSize: "12px" }}
+                                />
+                            </Typography>
                         </Button>
                     </Grid>
                 </Grid>
+            </Paper>
+            <Paper elevation={3} sx={{ boxShadow: "none" }}>
+                <img
+                    src={MacScreenshot}
+                    style={{ width: "100%", maxWidth: "1680px" }}
+                />
             </Paper>
         </div>
     );

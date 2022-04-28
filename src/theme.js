@@ -20,6 +20,9 @@ const baseTheme = createTheme({
     sidebar: {
       main: "#fafafa",
     },
+    lightBackground:{
+      main:"rgba(0, 0, 0, 0.05)"
+    }
   },
   breakpoints: {
     values: {
