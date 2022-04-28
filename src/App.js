@@ -8,6 +8,7 @@ import Carousel from "./components/Carousel";
 import Navigation from "./components/Navigation";
 import PlaylistHeader from "./components/PlaylistHeader";
 import SongList from "./components/SongList";
+import Footer from "./components/Footer"
 import data from "./MockData";
 
 const drawerWidth = 260;
@@ -86,6 +87,14 @@ function App() {
         <PlaylistHeader item={playlistHeader} />
         <SongList />
       </div>
+      <div
+                style={{
+                    marginLeft: `${drawerWidth}px`,
+                    background: "#fbfbfb",
+                }}
+            >
+                <Footer />
+            </div>
     </ThemeProvider>
   );
 }
