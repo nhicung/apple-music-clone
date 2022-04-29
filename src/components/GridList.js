@@ -1,19 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@mui/styles";
-import { Grid, Link, Typography } from "@mui/material/";
+import { Grid } from "@mui/material/";
 
-export const GridList = ({itemList, itemView, col}) => {
-  // const styles = useStyles();
+export const GridList = ({ itemList, itemView, col }) => {
     const ItemView = itemView;
 
-  return (
-    <Grid container sx={{ alignItems: "center" }}>
-      {itemList.map((item, idx) => (
-              <ItemView item={item} col={col} />
-      ))}
-    </Grid>
-  );
+    return (
+        <Grid container sx={{ alignItems: "center" }}>
+            {itemList.map((item, idx) => (
+                <ItemView item={item} col={col} />
+            ))}
+        </Grid>
+    );
 };
 
 export default GridList;

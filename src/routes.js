@@ -1,27 +1,22 @@
-import React from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
-import ScrollToTop from './components/ScrollToTop';
-import theme from './containers/modules/theme';
-import About from './pages/About';
-import Experience from './pages/Experience';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import NavBar from './views/common/NavBar';
-import Footer from './views/common/Footer';
+import React from "react";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import BrowsePage from "./pages/Browse";
+import ListenNowPage from "./pages/ListenNow";
+import RadioPage from "./pages/Radio";
+import PlayListPage from "./pages/PlayList";
 
-export const Routes = () => {
+export const RouteNavigation = () => {
     return (
-        <Router basename='/browse'>
-            <Route exact path='/' render={() => <Home />} />
-            <Route path='/home' render={() => <Redirect to='/' />} />
-            <Route path='/projects' render={() => <Projects />} />
-            <Route path='/experience' render={() => <Experience />} />
-            <Route path='/about' render={() => <About />} />
-            <Footer />
-        </Router>
+        <BrowserRouter>
+            <Routes>
+                <Route path="browse" element={<BrowsePage />} />
+                <Route path="*" element={<Navigate to="browse" replace />} />
+                <Route path="listen-now" element={<ListenNowPage />} />
+                <Route path="radio" element={<RadioPage />} />
+                <Route path="playlist" element={<PlayListPage />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 
-export default Routes;
+export default RouteNavigation;
