@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
         align: "center",
         margin: "auto",
         paddingTop: "3%",
-        boxShadow: "none",
+        boxShadow: "none !important",
         maxWidth: "75%",
         justifyContent: "center",
         display: "flex",
@@ -27,19 +27,6 @@ const useStyles = makeStyles((theme) => ({
     container: {
         justifyContent: "center",
         maxWidth: "75%",
-    },
-    header: {
-        fontWeight: "bold",
-    },
-    textDescription: {
-        [theme.breakpoints.up("md")]: {
-            fontSize: "1.5rem",
-        },
-        fontSize: "1.2rem",
-    },
-    button: {
-        textTransform: "none",
-        width: "20%",
     },
 }));
 
@@ -99,7 +86,10 @@ const ListenNowPage = () => {
                         <Button
                             variant="contained"
                             size="medium"
-                            className={classes.button}
+                            sx={{
+                                backgroundColor: "secondary.main",
+                                textTransform: "none",
+                            }}
                         >
                             <Typography
                                 sx={{
@@ -116,7 +106,9 @@ const ListenNowPage = () => {
                         <Button
                             variant="text"
                             size="medium"
-                            className={classes.button}
+                            sx={{
+                                textTransform: "none",
+                            }}
                         >
                             <Typography
                                 sx={{

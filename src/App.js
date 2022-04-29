@@ -15,6 +15,7 @@ import SongList from "./components/SongList";
 import Footer from "./components/Footer";
 import ListenNowPage from "./pages/ListenNow";
 import data from "./MockData";
+import Routes from "./routes";
 
 const drawerWidth = 260;
 
@@ -82,7 +83,8 @@ function App() {
                     ml: `${drawerWidth}px`,
                 }}
             >
-                <div>
+                <Routes />
+                {/* <div>
                     <GridItem1 item={item1} />
                 </div>
                 <div>
@@ -108,9 +110,9 @@ function App() {
                 </div>
                 <div>
                     <GridList itemList={data} itemView={GridItem1} col={3} />
-                </div>
+                </div> */}
             </Container>
-            <div
+            {/* <div
                 style={{
                     width: `calc(100% - ${drawerWidth}px)`,
                     marginLeft: `${drawerWidth}px`,
@@ -127,7 +129,7 @@ function App() {
                 }}
             >
                 <Footer />
-            </div>
+            </div> */}
             {/* <Container
                 display="flex"
                 justifyContent="center"
