@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Slider = ({ itemList, itemView }) => {
+const Slider = ({ itemList, itemView, cols }) => {
     const classes = useStyles();
     const ItemView = itemView;
 
@@ -69,7 +69,7 @@ const Slider = ({ itemList, itemView }) => {
                     ]}
                     spaceBetween={0}
                     cssMode={true}
-                    slidesPerView={5}
+                    slidesPerView={cols}
                     mousewheel={true}
                     navigation={true}
                     onSlideChange={() => console.log("slide change")}

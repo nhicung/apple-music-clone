@@ -30,9 +30,27 @@ export const Footer = () => {
     const [value, setValue] = React.useState(0);
 
     return (
-        <footer style={{ padding: "19px" }}>
-            <Grid container>
-                <Grid item xs>
+        <footer style={{ padding: "19px", background: "rgba(0, 0, 0, 0.05)" }}>
+            <Grid
+                container
+                sx={{ flexDirection: { md: "row-reverse", xs: "none" } }}
+            >
+                <Grid item xs={12} md={4} sx={{ pb: { xs: "20px", md: 0 } }}>
+                    <Typography
+                        sx={{
+                            display: "flex",
+                            justifyContent: {
+                                xs: "flex-start",
+                                md: "flex-end",
+                            },
+                            color: "lighter.main",
+                            fontSize: "11px",
+                        }}
+                    >
+                        United States
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} md={8}>
                     <Typography
                         sx={{
                             fontSize: "11px",
@@ -42,7 +60,6 @@ export const Footer = () => {
                             justifyContent: "space-between",
                             mb: "5px",
                             color: "lighter.main",
-                            pl: "10px",
                         }}
                     >
                         Copy right &copy; 2022{" "}
@@ -59,7 +76,7 @@ export const Footer = () => {
                         </a>{" "}
                         All rights reserved.
                     </Typography>
-                    <Table
+                    {/* <Table
                         size="small"
                         sx={{
                             [`& .${tableCellClasses.root}`]: {
@@ -90,19 +107,29 @@ export const Footer = () => {
                                 ))}
                             </TableRow>
                         </TableHead>
-                    </Table>
-                </Grid>
-                <Grid item xs>
-                    <Typography
-                        sx={{
-                            display: "flex",
-                            justifyContent: "flex-end",
-                            color: "lighter.main",
+                    </Table> */}
+                    <ul
+                        style={{
                             fontSize: "11px",
+                            color: "black",
+                            display: "flex",
+                            flexWrap: "wrap",
+                            listStyle: "none",
+                            padding: 0,
+                            marginLeft: "-10px",
                         }}
                     >
-                        United States
-                    </Typography>
+                        {columns.map((column) => (
+                            <li
+                                style={{
+                                    borderRight: column.borderLeft,
+                                    padding: "0px 10px",
+                                }}
+                            >
+                                <a href="">{column.label}</a>
+                            </li>
+                        ))}
+                    </ul>
                 </Grid>
             </Grid>
         </footer>

@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
 import GridItem1 from "../components/GridItem1";
 import data from "../MockData";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const BrowsePage = () => {
     const classes = useStyles();
+    const screenSize = useMediaQuery("(min-width:600px)");
 
     return (
         <div className={classes.root}>
@@ -42,7 +44,11 @@ const BrowsePage = () => {
                 </Typography>
             </div>
             <div>
-                <Carousel itemList={data} itemView={GridItem1} />
+                <Carousel
+                    itemList={data}
+                    itemView={GridItem1}
+                    cols={screenSize ? 5 : 2.5}
+                />
             </div>
             <Footer />
         </div>
