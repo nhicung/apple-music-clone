@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Footer from "../components/Footer";
+import SignInModal from "../components/SignInModal";
 import Carousel from "../components/Carousel";
 import GridItem1 from "../components/GridItem1";
 import data from "../MockData";
@@ -51,6 +52,7 @@ const BrowsePage = () => {
                 />
             </div>
             <Footer />
+            <SignInModal />
         </div>
     );
 };
