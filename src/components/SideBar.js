@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Drawer, Toolbar, Typography } from "@mui/material/";
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material/";
+import { List, ListItemIcon, ListItemText } from "@mui/material/";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import GridViewIcon from "@mui/icons-material/GridView";
 import SensorsIcon from "@mui/icons-material/Sensors";
@@ -8,6 +8,7 @@ import AppleMusicLogo from "../images/apple-music.svg";
 import AppleMusicCircle from "../images/apple-music-circle.png";
 import SearchBar from "./SearchBar";
 import CallMadeIcon from "@mui/icons-material/CallMade";
+import MenuListItem from "./MenuListItem";
 
 const drawerWidth = 260;
 
@@ -58,7 +59,7 @@ export const SideBar = () => {
             <div style={{ padding: "8px 25px" }}>
                 <List>
                     {sideBarTitle.map((menu) => (
-                        <ListItem
+                        <MenuListItem
                             button
                             key={menu.id}
                             sx={{
@@ -90,7 +91,7 @@ export const SideBar = () => {
                                     </Typography>
                                 }
                             />
-                        </ListItem>
+                        </MenuListItem>
                     ))}
                 </List>
             </div>
