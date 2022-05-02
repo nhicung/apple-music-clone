@@ -24,6 +24,8 @@ import DragHandleIcon from "@mui/icons-material/DragHandle";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
+import MenuListItem from "./MenuListItem";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const drawerWidth = 260;
 
@@ -56,6 +58,7 @@ const sideBarTitle = [
 
 export const SideBar = ({ handleOpen }) => {
     const [open, setOpen] = useState(false);
+    const screenSize = useMediaQuery("(min-width:600px)");
 
     // const [selectedIndex, setSelectedIndex] = React.useState();
 
@@ -217,19 +220,14 @@ export const SideBar = ({ handleOpen }) => {
                 <div style={{ padding: "8px 25px" }}>
                     <List>
                         {sideBarTitle.map((menu) => (
-                            <ListItemButton
+                            <MenuListItem
                                 // selected={selectedIndex === menu.id}
                                 // onClick={(event) =>
                                 //     handleListItemClick(event, menu.id)
                                 // }
+                                onClick={screenSize || toggleDrawer}
                                 key={menu.id}
-                                sx={{
-                                    margin: "0 0 2px",
-                                    padding: "4px",
-                                    borderRadius: "6px",
-                                    height: { xs: "42px", sm: "32px" },
-                                    display: menu.display,
-                                }}
+                                display={menu.display}
                                 href={menu.link}
                                 component="a"
                             >
@@ -256,7 +254,7 @@ export const SideBar = ({ handleOpen }) => {
                                         </Typography>
                                     }
                                 />
-                            </ListItemButton>
+                            </MenuListItem>
                         ))}
                     </List>
                 </div>
