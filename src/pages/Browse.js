@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Footer from "../components/Footer";
+import SignInModal from "../components/SignInModal";
 import Carousel from "../components/Carousel";
 import GridItem1 from "../components/GridItem1";
 import GridItem2 from "../components/GridItem2";
 import data from "../MockData";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import {
     getNewRealeases,
     getFeaturedPlaylists,
@@ -31,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const BrowsePage = () => {
     const classes = useStyles();
+    const screenSize = useMediaQuery("(min-width:600px)");
     const [albums, setAlbums] = useState([]);
     const [albums2, setAlbums2] = useState([]);
     const [albums3, setAlbums3] = useState([]);
@@ -93,7 +96,7 @@ const BrowsePage = () => {
             </div>
             <div>
                 <Carousel
-                    cols={5}
+                    cols={screenSize ? 5 : 2.5}
                     seeAll={true}
                     itemList={albums3}
                     itemView={GridItem1}
@@ -101,6 +104,7 @@ const BrowsePage = () => {
                 />
             </div>
             <Footer />
+            {/* <SignInModal /> */}
         </div>
     );
 };

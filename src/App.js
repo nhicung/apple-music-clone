@@ -1,5 +1,6 @@
+import * as React from "react";
 import { ThemeProvider } from "@mui/material/styles";
-import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 import theme from "./theme";
 import GridItem1 from "./components/GridItem1";
 import GridItem2 from "./components/GridItem2";
@@ -16,6 +17,7 @@ import Footer from "./components/Footer";
 import ListenNowPage from "./pages/ListenNow";
 import data from "./MockData";
 import Routes from "./routes";
+import ProfileMenu from "./components/ProfileMenu";
 import { useEffect } from "react";
 import { getNewRealeases } from "./utils/spotify";
 import { BrowserRouter } from "react-router-dom";
@@ -23,6 +25,16 @@ import { BrowserRouter } from "react-router-dom";
 const drawerWidth = 260;
 
 function App() {
+    const [open, setOpen] = React.useState(false);
+
+    const toggleOpen = () => {
+        setOpen(!open);
+        console.log("test");
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     const item1 = {
         title: "Rap Life",
         subtitle: "Apple Music Hip-Hop",
@@ -78,14 +90,18 @@ function App() {
         <BrowserRouter>
             <ThemeProvider theme={theme}>
                 <div>
-                    <Navigation />
+                    <Navigation handleOpen={toggleOpen} />
+                    <ProfileMenu open={open} onClose={handleClose} />
                 </div>
-                <Container
+                <Box
                     display="flex"
                     justifyContent="center"
                     sx={{
-                        width: `calc(100% - ${drawerWidth}px)`,
-                        ml: `${drawerWidth}px`,
+                        width: {
+                            xs: "100%",
+                            md: `calc(100% - ${drawerWidth}px)`,
+                        },
+                        ml: { xs: 0, md: `${drawerWidth}px` },
                     }}
                 >
                     <Routes />
@@ -116,7 +132,7 @@ function App() {
                 <div>
                     <GridList itemList={data} itemView={GridItem1} col={3} />
                 </div> */}
-                </Container>
+                </Box>
                 {/* <div
                 style={{
                     width: `calc(100% - ${drawerWidth}px)`,

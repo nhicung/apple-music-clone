@@ -26,6 +26,7 @@ export const SearchBar = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
+                display: { xs: "none", sm: "flex" },
             }}
             options={categories.map((option) => option.name)}
             autoHighlight
