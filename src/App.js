@@ -16,6 +16,9 @@ import Footer from "./components/Footer";
 import ListenNowPage from "./pages/ListenNow";
 import data from "./MockData";
 import Routes from "./routes";
+import { useEffect } from "react";
+import { getNewRealeases } from "./utils/spotify";
+import { BrowserRouter } from "react-router-dom";
 
 const drawerWidth = 260;
 
@@ -70,21 +73,23 @@ function App() {
         description:
             "“I think the song really shows off my honesty but also my energy,” Shawn Mendes tells Apple Music of “When You're Gone,” the new single that headlines A-List Pop this week. Originally written as a ballad on piano, it’s now a guitar-driven anthem, the Canadian singer-songwriter belting his way through a picture of love lost too soon. “Playing live shows is what I live for,” he says, “and this song was born to be played onstage.” Add A-List Pop to your library to stay up on the latest and greatest pop music.",
     };
+
     return (
-        <ThemeProvider theme={theme}>
-            <div>
-                <Navigation />
-            </div>
-            <Container
-                display="flex"
-                justifyContent="center"
-                sx={{
-                    width: `calc(100% - ${drawerWidth}px)`,
-                    ml: `${drawerWidth}px`,
-                }}
-            >
-                <Routes />
-                {/* <div>
+        <BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <div>
+                    <Navigation />
+                </div>
+                <Container
+                    display="flex"
+                    justifyContent="center"
+                    sx={{
+                        width: `calc(100% - ${drawerWidth}px)`,
+                        ml: `${drawerWidth}px`,
+                    }}
+                >
+                    <Routes />
+                    {/* <div>
                     <GridItem1 item={item1} />
                 </div>
                 <div>
@@ -111,8 +116,8 @@ function App() {
                 <div>
                     <GridList itemList={data} itemView={GridItem1} col={3} />
                 </div> */}
-            </Container>
-            {/* <div
+                </Container>
+                {/* <div
                 style={{
                     width: `calc(100% - ${drawerWidth}px)`,
                     marginLeft: `${drawerWidth}px`,
@@ -130,7 +135,7 @@ function App() {
             >
                 <Footer />
             </div> */}
-            {/* <Container
+                {/* <Container
                 display="flex"
                 justifyContent="center"
                 sx={{
@@ -140,7 +145,8 @@ function App() {
             >
                 <ListenNowPage />
             </Container> */}
-        </ThemeProvider>
+            </ThemeProvider>
+        </BrowserRouter>
     );
 }
 

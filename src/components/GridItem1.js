@@ -58,7 +58,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const GridItem = ({ item: { title, subtitle, media, url }, col }) => {
+export const GridItem = ({ item: { name, type, images, href }, col }) => {
     const styles = useStyles();
     return (
         <Grid
@@ -68,16 +68,16 @@ export const GridItem = ({ item: { title, subtitle, media, url }, col }) => {
             align="center"
             className={styles.gridItem}
         >
-            <Link href={url} style={{ textDecoration: "none" }}>
+            <Link href={href} style={{ textDecoration: "none" }}>
                 <div className={styles.frame}>
                     <img
-                        href={url}
-                        src={media}
-                        alt={title}
+                        href={href}
+                        src={images?.[0].url}
+                        alt={name}
                         className={styles.pic}
                     />
                     <IconButton
-                        href={url}
+                        href={href}
                         target="blank"
                         className={cx(styles.buttonGroup, styles.playButton)}
                         size="small"
@@ -94,7 +94,7 @@ export const GridItem = ({ item: { title, subtitle, media, url }, col }) => {
                         />
                     </IconButton>
                     <IconButton
-                        href={url}
+                        href={href}
                         target="blank"
                         className={cx(styles.buttonGroup, styles.moreButton)}
                         size="small"
@@ -114,19 +114,19 @@ export const GridItem = ({ item: { title, subtitle, media, url }, col }) => {
                 <div className={styles.description}>
                     <Typography
                         className={styles.title}
-                        sx={{ fontSize: 16, fontWeight: 400 }}
+                        sx={{ fontSize: 12, fontWeight: 400 }}
                     >
-                        {title}
+                        {name.length > 30 ? name.substr(0, 30) + "..." : name}
                     </Typography>
                     <Typography
                         className={styles.title}
                         sx={{
-                            fontSize: 14,
+                            fontSize: 12,
                             fontWeight: 300,
                             color: "subtitle.main",
                         }}
                     >
-                        {subtitle}
+                        {type}
                     </Typography>
                 </div>
             </Link>
@@ -134,13 +134,12 @@ export const GridItem = ({ item: { title, subtitle, media, url }, col }) => {
     );
 };
 
-GridItem.propTypes = {
-    title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string.isRequired,
-    media: PropTypes.string.isRequired,
-    url: PropTypes.string,
-    textColor: PropTypes.string.isRequired,
-    col: PropTypes.number.isRequired,
-};
+// GridItem.propTypes = {
+//     name: PropTypes.string.isRequired,
+//     type: PropTypes.string.isRequired,
+//     images: PropTypes.array.isRequired,
+//     href: PropTypes.string,
+//     col: PropTypes.number.isRequired,
+// };
 
 export default GridItem;
