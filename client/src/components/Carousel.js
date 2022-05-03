@@ -1,12 +1,11 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Typography, Button } from "@mui/material/";
-import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from "swiper";
+import { Navigation, A11y, Mousewheel, Grid } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/css/grid";
 
 const useStyles = makeStyles((theme) => ({
     contain: {
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Slider = ({ itemList, itemView, header, cols, seeAll, top }) => {
+const Slider = ({ itemList, itemView, header, cols, rows, seeAll, top }) => {
     const classes = useStyles({ top });
     const ItemView = itemView;
 
@@ -116,16 +115,18 @@ const Slider = ({ itemList, itemView, header, cols, seeAll, top }) => {
                 ) : null}
                 <Swiper
                     className={classes.swiper}
-                    modules={[
-                        Navigation,
-                        Pagination,
-                        Scrollbar,
-                        A11y,
-                        Mousewheel,
-                    ]}
+                    modules={[Navigation, A11y, Mousewheel, Grid]}
+                    grid={{
+                        rows: rows,
+                    }}
                     spaceBetween={0}
                     cssMode={true}
                     slidesPerView={cols}
+                    breakpoints={{
+                        769: {
+                            slidesPerGroup: cols,
+                        },
+                    }}
                     mousewheel={true}
                     navigation={true}
                     onSlideChange={() => console.log("slide change")}

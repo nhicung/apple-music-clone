@@ -2,7 +2,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 const spotify = new SpotifyWebApi();
 spotify.setAccessToken(
-    "BQBCkDVJnRocOKn7mVpXHVuxnTlt_sAjNGDjjQBJQk7b2xNzfQDPltMCDbUTerTZPmYY1Mo90LaQJDp7QJDqJ8oaMu67rl3syvLhd7FAzVURWcWk4locwkalygzFKnBnQGlyG1dJkA2ZCpQ"
+    "BQBQazubleZ9hTheJhPMohraUzCrsIqdwOTRPXe2J4X2e5hSWNdQIeEdZr1HaaeV6NOx5h2Gfo59p3-ACkXC-ynfP73-J4AaCCnR69yfVZJzfznrHC0vr2Tm5r7PGOJBgtRiegaAID7xxFM"
 );
 
 export const getNewRealeases = async (offset = 0) => {
@@ -19,17 +19,17 @@ export const getNewRealeases = async (offset = 0) => {
 export const getFeaturedPlaylists = async () => {
     try {
         const res = await spotify.getFeaturedPlaylists({});
-        console.log(res);
+        // console.log(res);
         return res.playlists.items;
     } catch (err) {
         console.error(err);
     }
 };
 
-export const getCategories = async () => {
+export const getCategories = async (limit = 20) => {
     try {
-        const res = await spotify.getCategories({});
-        console.log(res);
+        const res = await spotify.getCategories({ limit: limit });
+        // console.log(res);
         return res.categories.items;
     } catch (err) {
         console.error(err);

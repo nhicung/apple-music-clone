@@ -8,7 +8,7 @@ export const GridList = ({ itemList, itemView, col, titlePosition }) => {
         <Grid
             spacing={2}
             container
-            sx={{ alignItems: "center", padding: "0 10px" }}
+            sx={{ alignItems: "center", padding: "0 10px 10px 10px" }}
         >
             {itemList.map((item, idx) => (
                 <ItemView item={item} col={col} titlePosition={titlePosition} />

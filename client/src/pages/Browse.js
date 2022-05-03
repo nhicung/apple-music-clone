@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, Grid, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Footer from "../components/Footer";
 import SignInModal from "../components/SignInModal";
 import Carousel from "../components/Carousel";
 import GridItem1 from "../components/GridItem1";
 import GridItem2 from "../components/GridItem2";
-import data from "../MockData";
+import GridItem4 from "../components/GridItem4";
+import GridList from "../components/GridList";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
     getNewRealeases,
@@ -22,12 +23,14 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         flexGrow: 1,
         top: "55px",
+        padding: "0 15px",
     },
     header: {
         margin: "32px 10px 0",
         display: "flex",
         alignItems: "flex-end",
         borderBottom: " 0.5px solid rgba(0,0,0,0.15)",
+        marginLeft: "20px",
     },
 }));
 
@@ -45,7 +48,7 @@ const BrowsePage = () => {
         getNewRealeases(20).then((res) => setAlbums2(res));
         getNewRealeases(40).then((res) => setAlbums3(res));
         getFeaturedPlaylists().then((res) => setPlaylist(res));
-        getCategories().then((res) => setCategories(res));
+        getCategories(7).then((res) => setCategories(res));
     }, []);
 
     // useEffect(() => {
@@ -62,7 +65,7 @@ const BrowsePage = () => {
 
     return (
         <div className={classes.root}>
-            <div className={classes.header}>
+            <Box className={classes.header}>
                 <Typography
                     sx={{
                         fontSize: "34px",
@@ -74,34 +77,33 @@ const BrowsePage = () => {
                 >
                     Browse
                 </Typography>
-            </div>
-            <Carousel
-                itemList={playlist}
-                cols={2}
-                itemView={GridItem2}
-                top="60%"
-            />
-            <div>
+            </Box>
+            <Box sx={{ paddingBottom: "48px" }}>
+                <Carousel
+                    itemList={playlist}
+                    cols={screenSize ? 2 : 1.5}
+                    itemView={GridItem2}
+                    top="60%"
+                    rows={1}
+                />
                 <Carousel
                     itemList={albums}
                     seeAll={true}
-                    cols={5}
+                    cols={screenSize ? 5 : 2.5}
                     itemView={GridItem1}
                     header="You Gotta Hear"
                     top="40%"
+                    rows={1}
                 />
-            </div>
-            <div>
                 <Carousel
-                    cols={5}
+                    cols={screenSize ? 5 : 2.5}
                     seeAll={true}
                     itemList={albums2}
                     itemView={GridItem1}
                     header="Now in Spatial Audio"
                     top="40%"
+                    rows={1}
                 />
-            </div>
-            <div>
                 <Carousel
                     cols={screenSize ? 5 : 2.5}
                     seeAll={true}
@@ -109,8 +111,29 @@ const BrowsePage = () => {
                     itemView={GridItem1}
                     header="New Music"
                     top="40%"
+                    rows={1}
                 />
-            </div>
+                <Box>
+                    <Typography
+                        sx={{
+                            fontSize: "17px",
+                            lineHeight: 1.17649,
+                            fontWeight: 700,
+                            letterSpacing: 0,
+                            mb: "6px",
+                            width: "100%",
+                            padding: "10px 0 12px 25px",
+                        }}
+                    >
+                        More to Explore
+                    </Typography>
+                    <GridList
+                        itemList={categories}
+                        itemView={GridItem4}
+                        col={screenSize ? 3 : 1}
+                    />
+                </Box>
+            </Box>
             <Footer />
             {/* <SignInModal /> */}
         </div>

@@ -24,28 +24,8 @@ const useStyles = makeStyles(() => ({
         borderRadius: 6,
         transition: " .1s ease-in",
     },
-    title: {
-        display: "flex",
-        justifyContent: "flex-start",
-        fontSize: 14,
-        fontWeight: 300,
-        color: "white",
-        padding: 8,
-        paddingLeft: 10,
-    },
-    buttonGroup: {
-        position: "absolute",
-        color: "rgba(255,255,255,0.4)",
-        transition: "0.3s",
-        display: "flex",
-        alignItems: "flex-end",
-        whiteSpace: "normal",
-        minHeight: 100,
-        justifyContent: "space-between",
-        left: 5,
-        right: 5,
-        bottom: "2%",
-    },
+    title: {},
+    buttonGroup: {},
     playButton: {
         backdropFilter: "blur(5px)",
         fontSize: 40,
@@ -63,7 +43,6 @@ export const GridItem = ({
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    lineHeight: 1.5,
                     marginBottom: "6px",
                 }}
             >
@@ -72,6 +51,7 @@ export const GridItem = ({
                         textTransform: "uppercase",
                         color: "lighter.main",
                         fontSize: "11px",
+                        lineHeight: 1.27,
                     }}
                 >
                     {type}
@@ -79,6 +59,7 @@ export const GridItem = ({
                 <Typography
                     sx={{
                         fontSize: "17px",
+                        lineHeight: 1.27,
                     }}
                 >
                     {name}
@@ -87,19 +68,20 @@ export const GridItem = ({
                     sx={{
                         color: "lighter.main",
                         fontSize: "17px",
+                        lineHeight: 1.27,
                     }}
                 >
                     {type}
                 </Typography>
             </div>
             <Link href={href} style={{ textDecoration: "none" }}>
-                <div
-                    style={{
+                <Box
+                    sx={{
                         position: "relative",
-                        borderRadius: 6,
+                        borderRadius: 2,
                         transition: " 0.2s ease-in",
                         backgroundImage: `url(${images[0].url})`,
-                        height: "300px",
+                        height: { xs: "150px", sm: "300px" },
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "50% 36%",
@@ -117,8 +99,31 @@ export const GridItem = ({
                             borderRadius: 2,
                         }}
                     >
-                        <div className={styles.buttonGroup}>
-                            <Typography className={styles.title}>
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                color: "rgba(255,255,255,0.4)",
+                                transition: "0.3s",
+                                display: "flex",
+                                alignItems: "flex-end",
+                                whiteSpace: "normal",
+                                minHeight: 100,
+                                justifyContent: "space-between",
+                                left: 5,
+                                right: 5,
+                                bottom: "2%",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "flex-start",
+                                    fontSize: { xs: "12px", sm: "14px" },
+                                    fontWeight: 300,
+                                    color: "white",
+                                    padding: 1,
+                                }}
+                            >
                                 {description}
                             </Typography>
                             <IconButton
@@ -136,9 +141,9 @@ export const GridItem = ({
                                     }}
                                 />
                             </IconButton>
-                        </div>
+                        </Box>
                     </Box>
-                </div>
+                </Box>
             </Link>
         </Grid>
     );
