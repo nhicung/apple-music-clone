@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@mui/styles";
-import { Grid, Link, Typography } from "@mui/material/";
+import { Grid, Link, Typography, Box } from "@mui/material/";
 
 const useStyles = makeStyles(() => ({
     gridItem: {
@@ -9,6 +9,10 @@ const useStyles = makeStyles(() => ({
         maxHeight: "200px",
         position: "relative",
         margin: "10px 0",
+        "&:hover": {
+            cursor: "pointer",
+            filter: "brightness(0.50)",
+        },
     },
     pic: {
         height: "auto",
@@ -37,23 +41,19 @@ export const GridItem = ({
             className={styles.gridItem}
         >
             <Link href={href} style={{ textDecoration: "none" }}>
-                <div
-                    style={{
+                <Box
+                    sx={{
                         position: "relative",
-                        borderRadius: 6,
+                        borderRadius: 3,
                         transition: " 0.2s ease-in",
                         width: "100%",
-                        "&:hover": {
-                            cursor: "pointer",
-                            filter: "brightness(0.75)",
-                        },
                         backgroundImage: `url(${icons[0].url})`,
                         height: "150px",
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "50% 36%",
                     }}
-                ></div>
+                ></Box>
                 {titlePosition === "atBottom" ? (
                     <div className={styles.description}>
                         <Typography

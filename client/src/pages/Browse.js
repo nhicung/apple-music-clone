@@ -75,7 +75,12 @@ const BrowsePage = () => {
                     Browse
                 </Typography>
             </div>
-            <Carousel itemList={playlist} cols={2} itemView={GridItem2} />
+            <Carousel
+                itemList={playlist}
+                cols={2}
+                itemView={GridItem2}
+                top="60%"
+            />
             <div>
                 <Carousel
                     itemList={albums}
@@ -83,6 +88,7 @@ const BrowsePage = () => {
                     cols={5}
                     itemView={GridItem1}
                     header="You Gotta Hear"
+                    top="40%"
                 />
             </div>
             <div>
@@ -92,6 +98,7 @@ const BrowsePage = () => {
                     itemList={albums2}
                     itemView={GridItem1}
                     header="Now in Spatial Audio"
+                    top="40%"
                 />
             </div>
             <div>
@@ -101,6 +108,7 @@ const BrowsePage = () => {
                     itemList={albums3}
                     itemView={GridItem1}
                     header="New Music"
+                    top="40%"
                 />
             </div>
             <Footer />

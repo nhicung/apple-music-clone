@@ -1,48 +1,52 @@
 import React from "react";
-import { Button, Grid, Paper, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Button, Grid, Paper, Typography, Box } from "@mui/material";
 import AppleMusicLogo from "../images/apple-music.svg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MacScreenshot from "../images/MacScreenshot.webp";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        justifyContent: "center",
-        height: "calc(100% - 55px)",
-        top: "55px",
-        paddingTop: "76px",
-        position: "fixed",
-    },
-    paper: {
-        padding: theme.spacing(2),
-        align: "center",
-        margin: "auto",
-        paddingTop: "3%",
-        boxShadow: "none !important",
-        maxWidth: "75%",
-        justifyContent: "center",
-        display: "flex",
-    },
-    container: {
-        justifyContent: "center",
-        maxWidth: "75%",
-    },
-}));
-
 const ListenNowPage = () => {
-    const classes = useStyles();
-
     return (
-        <div className={classes.root}>
-            <Paper className={classes.paper} elevation={3}>
+        <Box
+            sx={{
+                flexGrow: 1,
+                justifyContent: "center",
+                height: "calc(100% - 55px)",
+                top: { xs: 0, sm: "55px" },
+                paddingTop: "76px",
+                position: "fixed",
+            }}
+        >
+            <Paper
+                sx={{
+                    // padding: "8px",
+                    align: "center",
+                    margin: "auto",
+                    paddingTop: "3%",
+                    boxShadow: "none !important",
+                    maxWidth: "75%",
+                    justifyContent: "center",
+                    display: "flex",
+                }}
+                elevation={3}
+            >
                 <Grid
                     container
                     spacing={1}
                     align="center"
-                    className={classes.container}
+                    sx={{
+                        justifyContent: "center",
+                        maxWidth: { xs: "100%", sm: "75%" },
+                    }}
                 >
-                    <Grid item xs={12} align="center">
+                    <Grid
+                        item
+                        xs={12}
+                        align="center"
+                        sx={{
+                            display: { xs: "none", sm: "inline" },
+                            paddingRight: "8px",
+                        }}
+                    >
                         <img
                             width={85}
                             src={AppleMusicLogo}
@@ -53,7 +57,7 @@ const ListenNowPage = () => {
                         <Typography
                             variant="h5"
                             sx={{
-                                fontSize: "48px",
+                                fontSize: { xs: "28px", sm: "48px" },
                                 lineHeight: 1.0834933333,
                                 fontWeight: 600,
                                 letterSpacing: " -.003em",
@@ -71,7 +75,7 @@ const ListenNowPage = () => {
                         <Typography
                             variant="h5"
                             sx={{
-                                fontSize: "17px",
+                                fontSize: { xs: "13px", sm: "17px" },
                                 lineHeight: 1.4118447059,
                                 fontWeight: 400,
                                 letterSpacing: 0,
@@ -89,6 +93,7 @@ const ListenNowPage = () => {
                             sx={{
                                 backgroundColor: "secondary.main",
                                 textTransform: "none",
+                                minWidth: "125px",
                             }}
                         >
                             <Typography
@@ -132,7 +137,7 @@ const ListenNowPage = () => {
                     style={{ width: "100%", maxWidth: "1680px" }}
                 />
             </Paper>
-        </div>
+        </Box>
     );
 };
 

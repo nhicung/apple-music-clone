@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         transform: "translate3d(0,0,50px)",
         "& .swiper-button-prev, .swiper-button-next": {
             opacity: 0,
-            top: "40%",
+            top: ({ top }) => top,
             width: "40px",
             height: "40px",
             color: "#000000",
@@ -54,8 +54,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Slider = ({ itemList, itemView, header, cols, seeAll }) => {
-    const classes = useStyles();
+const Slider = ({ itemList, itemView, header, cols, seeAll, top }) => {
+    const classes = useStyles({ top });
     const ItemView = itemView;
 
     if (itemList.length === 0) {

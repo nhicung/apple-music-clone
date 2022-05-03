@@ -8,18 +8,11 @@ const useStyles = makeStyles(() => ({
     gridItem: {
         listStyle: "none",
         height: "auto",
-        display: "inline-block",
         padding: "10px",
-    },
-    frame: {
-        display: "inline-block",
-        position: "relative",
-        borderRadius: 6,
-        transition: " 0.2s ease-in",
         "&:hover": {
             cursor: "pointer",
             filter: "brightness(0.85)",
-            "& $buttonGroup": {
+            "& $playButton": {
                 transform: "translate3d(0,0,50px)",
                 opacity: 1,
             },
@@ -37,28 +30,26 @@ const useStyles = makeStyles(() => ({
         fontSize: 14,
         fontWeight: 300,
         color: "white",
-        padding: 20,
+        padding: 8,
         paddingLeft: 10,
     },
     buttonGroup: {
         position: "absolute",
         color: "rgba(255,255,255,0.4)",
-        opacity: 0,
         transition: "0.3s",
         display: "flex",
         alignItems: "flex-end",
         whiteSpace: "normal",
         minHeight: 100,
         justifyContent: "space-between",
-        left: 15,
-        right: 15,
+        left: 5,
+        right: 5,
         bottom: "2%",
     },
     playButton: {
         backdropFilter: "blur(5px)",
-
-        right: "2%",
-        fontSize: 60,
+        fontSize: 40,
+        opacity: 0,
     },
 }));
 
@@ -102,31 +93,31 @@ export const GridItem = ({
                 </Typography>
             </div>
             <Link href={href} style={{ textDecoration: "none" }}>
-                <div className={styles.frame}>
-                    <img
-                        href={href}
-                        src={images[0].url}
-                        alt={description}
-                        className={styles.pic}
-                    />
+                <div
+                    style={{
+                        position: "relative",
+                        borderRadius: 6,
+                        transition: " 0.2s ease-in",
+                        backgroundImage: `url(${images[0].url})`,
+                        height: "300px",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "50% 36%",
+                        width: "100%",
+                    }}
+                >
                     <Box
                         sx={{
-                            opacity: 1,
                             background:
                                 "linear-gradient(transparent 0,rgba(0,0,0,.4))",
-                            height: 300,
+                            height: 150,
                             width: "100%",
                             position: "absolute",
-                            bottom: ".5%",
-                            left: 0,
-                            right: 0,
+                            bottom: 0,
+                            borderRadius: 2,
                         }}
                     >
-                        <div
-                            href={href}
-                            target="blank"
-                            className={styles.buttonGroup}
-                        >
+                        <div className={styles.buttonGroup}>
                             <Typography className={styles.title}>
                                 {description}
                             </Typography>
@@ -136,7 +127,7 @@ export const GridItem = ({
                             >
                                 <PlayCircleIcon
                                     sx={{
-                                        fontSize: 60,
+                                        fontSize: 40,
                                         zIndex: 5,
                                         "&:hover": {
                                             cursor: "pointer",

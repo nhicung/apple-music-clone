@@ -2,7 +2,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 const spotify = new SpotifyWebApi();
 spotify.setAccessToken(
-    "BQC-fC_VlncVriNsneW_Quq1ZEUyC9jMxA3DtjUDdrcdz_MY9gldlattVhSaCNl_D1L_EKHJHOAtXdHCSpjPFb8co8PPH6v3E2jp9OcYgQmQRmcAjuJQyXEEq77hSf2WgHZKuPbQCi2_SOw"
+    "BQBCkDVJnRocOKn7mVpXHVuxnTlt_sAjNGDjjQBJQk7b2xNzfQDPltMCDbUTerTZPmYY1Mo90LaQJDp7QJDqJ8oaMu67rl3syvLhd7FAzVURWcWk4locwkalygzFKnBnQGlyG1dJkA2ZCpQ"
 );
 
 export const getNewRealeases = async (offset = 0) => {
