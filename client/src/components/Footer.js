@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Table, TableHead, TableRow, Typography, Grid } from "@mui/material";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import { Typography, Grid } from "@mui/material";
 
 const columns = [
     { id: 1, label: "Internet Service Terms" },
@@ -62,7 +61,7 @@ export const Footer = () => {
                             color: "lighter.main",
                         }}
                     >
-                        Copy right &copy; 2022{" "}
+                        Copyright &copy; 2022{" "}
                         <a
                             href="htttps://www.apple.com"
                             target="_blank"
@@ -76,38 +75,6 @@ export const Footer = () => {
                         </a>{" "}
                         All rights reserved.
                     </Typography>
-                    {/* <Table
-                        size="small"
-                        sx={{
-                            [`& .${tableCellClasses.root}`]: {
-                                borderBottom: "none",
-                                fontSize: "11px",
-                                color: "black",
-                            },
-                        }}
-                    >
-                        <TableHead>
-                            <TableRow
-                                sx={{
-                                    "& th": {
-                                        //   color: "black",
-                                    },
-                                }}
-                            >
-                                {columns.map((column) => (
-                                    <TableCell
-                                        key={column.id}
-                                        style={{
-                                            borderLeft: column.borderLeft,
-                                            padding: "0px 10px",
-                                        }}
-                                    >
-                                        {column.label}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        </TableHead>
-                    </Table> */}
                     <ul
                         style={{
                             fontSize: "11px",

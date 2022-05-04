@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
         listStyle: "none",
         height: "auto",
         display: "inline-block",
-        margin: "0 15px",
+        margin: "5px 15px",
         "&:hover": {
             cursor: "pointer",
             "& $playButton": {
@@ -21,48 +21,47 @@ const useStyles = makeStyles(() => ({
     },
     pic: {
         height: "auto",
-        maxWidth: "100%",
         borderRadius: 6,
     },
     description: {
-        padding: "10px 27px 10px 20px",
+        padding: "10px",
         color: "#fffff",
     },
     playButton: {
         position: "absolute !important",
-        opacity: 0,
-        top: 0,
-        right: 0,
-        left: 0,
-        bottom: 0,
+        opacity: "0",
+        top: "14px",
         transition: "0.3s !important",
-        left: "3%",
+        left: "14px",
         fontSize: 60,
         zIndex: 5,
     },
 }));
 
-export const GridItem = ({ item: { title, subtitle, media, url } }) => {
+export const GridItem = ({ item: { name, type, images, href }, col }) => {
     const styles = useStyles();
     return (
-        <Grid item direction="column" className={styles.gridItem}>
-            <Link href={url} style={{ textDecoration: "none" }}>
+        <Grid xs={12 / col} item direction="column" className={styles.gridItem}>
+            <Link href={href} style={{ textDecoration: "none" }}>
                 <Grid container>
                     <Grid
                         item
                         xs
-                        sx={{ maxWidth: "fit-content", position: "relative" }}
+                        sx={{
+                            maxWidth: "fit-content",
+                            position: "relative",
+                        }}
                     >
                         <img
-                            href={url}
-                            src={media}
-                            alt={title}
+                            href={href}
+                            src={images?.[0].url}
+                            alt={name}
                             width={97}
                             height={97}
                             className={styles.pic}
                         />
                         <IconButton
-                            href={url}
+                            href={href}
                             target="blank"
                             className={styles.playButton}
                             size="small"
@@ -82,8 +81,11 @@ export const GridItem = ({ item: { title, subtitle, media, url } }) => {
                     </Grid>
                     <Grid
                         item
-                        xs={9}
-                        sx={{ display: "flex", alignItems: "center" }}
+                        xs
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}
                     >
                         <div className={styles.description}>
                             <Typography
@@ -94,7 +96,7 @@ export const GridItem = ({ item: { title, subtitle, media, url } }) => {
                                     justifyContent: "flex-start",
                                 }}
                             >
-                                {title}
+                                {name}
                             </Typography>
                             <Typography
                                 sx={{
@@ -105,7 +107,7 @@ export const GridItem = ({ item: { title, subtitle, media, url } }) => {
                                     justifyContent: "flex-start",
                                 }}
                             >
-                                {subtitle}
+                                {type}
                             </Typography>
                         </div>
                     </Grid>
@@ -116,10 +118,11 @@ export const GridItem = ({ item: { title, subtitle, media, url } }) => {
 };
 
 GridItem.propTypes = {
-    title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string.isRequired,
-    media: PropTypes.string.isRequired,
-    url: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    href: PropTypes.string,
+    col: PropTypes.number.isRequired,
 };
 
 export default GridItem;

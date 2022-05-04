@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import { Button, Grid, Paper, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Footer from "../components/Footer";
+import GridList from "../components/GridList";
 import Carousel from "../components/Carousel";
-import GridItem1 from "../components/GridItem1";
-import data from "../MockData";
-// import { getRecommendations } from "../utils/spotify";
+import GridItem5 from "../components/GridItem5";
+import GridItem6 from "../components/GridItem6";
+import { getFeaturedPlaylists, getNewRealeases } from "../utils/spotify";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,25 +17,35 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         flexGrow: 1,
         top: "55px",
+        padding: "0 15px",
     },
-    header: {
-        margin: "32px 10px 0",
-        display: "flex",
-        alignItems: "flex-end",
-        borderBottom: " 0.5px solid rgba(0,0,0,0.15)",
-    },
+    header: {},
 }));
 
 const RadioPage = () => {
     const classes = useStyles();
+    const [playlist, setPlaylist] = useState([]);
+    const [newReleases, setNewReleases] = useState([]);
+    const [newReleases2, setNewReleases2] = useState([]);
 
-    // useEffect(() => {
-    //     getRecommendations().then((res) => console.log(res));
-    // }, []);
+    const screenSize = useMediaQuery("(min-width:600px)");
+
+    useEffect(() => {
+        getFeaturedPlaylists(9).then((res) => setPlaylist(res));
+        getNewRealeases(60).then((res) => setNewReleases(res));
+        getNewRealeases(80).then((res) => setNewReleases2(res));
+    }, []);
 
     return (
         <div className={classes.root}>
-            <div className={classes.header}>
+            <Box
+                sx={{
+                    margin: { xs: "32px 10px 0", sm: "32px 30px 0" },
+                    display: "flex",
+                    alignItems: "flex-end",
+                    borderBottom: " 0.5px solid rgba(0,0,0,0.15)",
+                }}
+            >
                 <Typography
                     sx={{
                         fontSize: "34px",
@@ -45,7 +57,42 @@ const RadioPage = () => {
                 >
                     Radio
                 </Typography>
-            </div>
+            </Box>
+            <Box sx={{ padding: { xs: "10px 0", sm: "20px 0" } }}>
+                <Box
+                    sx={{
+                        padding: {
+                            xs: "0 15px 30px 25px",
+                            sm: "0 20px 30px 30px",
+                        },
+                        borderBottom: "0.5px solid rgba(0,0,0,0.15)",
+                    }}
+                >
+                    <GridList
+                        itemList={playlist}
+                        itemView={GridItem6}
+                        col={screenSize ? 3 : 1}
+                    />
+                </Box>
+                <Carousel
+                    itemList={newReleases}
+                    seeAll={true}
+                    cols={screenSize ? 3 : 1.5}
+                    itemView={GridItem5}
+                    header="Local Broadcasters"
+                    top="50%"
+                    rows={1}
+                />
+                <Carousel
+                    itemList={newReleases2}
+                    seeAll={true}
+                    cols={screenSize ? 3 : 1.5}
+                    itemView={GridItem5}
+                    header="International Broadcasters"
+                    top="50%"
+                    rows={1}
+                />
+            </Box>
             <Footer />
         </div>
     );

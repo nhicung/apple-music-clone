@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Paper,
     Table,
@@ -10,6 +10,7 @@ import {
 } from "@mui/material/";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
+import { getPlaylist } from "../utils/spotify";
 
 const columns = [
     { id: "song", label: "Song", minWidth: "42%" },
@@ -33,98 +34,14 @@ const columns = [
     },
 ];
 
-function createData(image, song, artist, album, time) {
-    return { image, song, artist, album, time };
-}
-
-const rows = [
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-    createData(
-        "https://is4-ssl.mzstatic.com/image/thumb/Features126/v4/71/f4/87/71f4876f-639b-61db-bcc6-a27d161c7fb3/U0MtTVMtV1ctUmFwTGlmZV9QbGF5bGlzdC1MaWxfRHVyay1BREFNX0lEPTEwMDQ3ODkxMjIucG5n.png/456x456SC.DN01.webp?l=en-US",
-        "Rap Life",
-        "Shanwn Mendes",
-        "Rap Life",
-        "2:55"
-    ),
-];
-
 export default function StickyHeadTable() {
+    const [playlist, setPlaylist] = useState([]);
+    useEffect(() => {
+        getPlaylist("37i9dQZF1DXcBWIGoYBM5M").then((res) =>
+            setPlaylist(res.tracks.items)
+        );
+    }, []);
+
     return (
         <Paper
             sx={{
@@ -175,7 +92,13 @@ export default function StickyHeadTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => {
+                        {playlist.map((row) => {
+                            const item = row.track;
+                            var minutes = Math.floor(item.duration_ms / 60000);
+                            var seconds = (
+                                (item.duration_ms % 60000) /
+                                1000
+                            ).toFixed(0);
                             return (
                                 <TableRow
                                     hover
@@ -193,22 +116,29 @@ export default function StickyHeadTable() {
                                     >
                                         <div style={{ marginRight: "20px" }}>
                                             <img
-                                                src={row.image}
+                                                src={item.album.images[0].url}
                                                 height="40"
                                                 style={{ borderRadius: "3px" }}
                                             />
                                         </div>
-                                        {row.song}
+                                        {item.name}
                                     </TableCell>
-                                    <TableCell>{row.artist}</TableCell>
-                                    <TableCell>{row.album}</TableCell>
+                                    <TableCell>
+                                        {item.artists[0].name}
+                                    </TableCell>
+                                    <TableCell>{item.album.name}</TableCell>
                                     <TableCell
                                         sx={{
                                             display: "flex",
                                             alignItems: "center",
                                         }}
                                     >
-                                        {row.time}
+                                        {seconds == 60
+                                            ? minutes + 1 + ":00"
+                                            : minutes +
+                                              ":" +
+                                              (seconds < 10 ? "0" : "") +
+                                              seconds}
                                         <IconButton
                                             fontSize="small"
                                             color="secondary"

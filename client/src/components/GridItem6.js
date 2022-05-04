@@ -13,11 +13,7 @@ const useStyles = makeStyles(() => ({
         display: "inline-block",
         padding: "0px 15px",
     },
-    frame: {
-        display: "inline-block",
-        position: "relative",
-        borderRadius: 6,
-    },
+    frame: {},
     pic: {
         height: "auto",
         maxWidth: "100%",
@@ -53,20 +49,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const GridItem = ({
-    item: {
-        media,
-        title,
-        subtitle,
-        url,
-        schedule,
-        event,
-        description,
-        background,
-    },
+    item: { href, images, name, description },
+    col,
 }) => {
     const styles = useStyles();
     return (
-        <Grid item direction="column" className={styles.gridItem}>
+        <Grid xs={12 / col} item direction="column" className={styles.gridItem}>
             <div
                 style={{
                     display: "flex",
@@ -78,7 +66,6 @@ export const GridItem = ({
                 <div>
                     <Typography
                         sx={{
-                            textTransform: "uppercase",
                             color: "black",
                             fontSize: "17px",
                             fontWeight: 700,
@@ -88,7 +75,7 @@ export const GridItem = ({
                         }}
                     >
                         <AppleIcon sx={{ fontSize: "16px" }} />
-                        {title}
+                        Music Hits
                     </Typography>
                     <Typography
                         sx={{
@@ -96,7 +83,7 @@ export const GridItem = ({
                             color: "lighter.main",
                         }}
                     >
-                        {subtitle}
+                        The new music that matters.
                     </Typography>
                 </div>
                 <IconButton>
@@ -104,27 +91,29 @@ export const GridItem = ({
                 </IconButton>
             </div>
 
-            <Link href={url} style={{ textDecoration: "none" }}>
+            <Link href={href} style={{ textDecoration: "none" }}>
                 <div
                     className={styles.wrapper}
                     style={{
-                        backgroundImage: `url(${background})`,
+                        backgroundColor: "#641824",
                     }}
                 >
-                    <div className={styles.frame}>
-                        <img
-                            href={url}
-                            src={media}
-                            alt={subtitle}
-                            className={styles.pic}
-                        />
-                    </div>
+                    <Box
+                        sx={{
+                            display: "inline-block",
+                            position: "relative",
+                            borderRadius: 2,
+                            backgroundImage: `url(${images[0].url})`,
+                            height: { xs: "100px", sm: "200px" },
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                            backgroundPosition: "50% 36%",
+                            width: "100%",
+                        }}
+                    ></Box>
                     <div
-                        href={url}
-                        target="blank"
                         style={{
                             width: "100%",
-                            backgroundImage: `url(${background})`,
                             padding: "14px 12px 16px 12px",
                             backgroundSize: "cover",
                             backgroundPosition: " center bottom",
@@ -145,7 +134,7 @@ export const GridItem = ({
                                     letterSpacing: 0,
                                 }}
                             >
-                                {schedule}
+                                LIVE · 5 – 7PM
                             </Typography>
                             <Typography
                                 sx={{
@@ -157,7 +146,7 @@ export const GridItem = ({
                                     marginBottom: " 1px",
                                 }}
                             >
-                                {event}
+                                {name}
                             </Typography>
                             <Typography
                                 sx={{ fontSize: "12px", lineHeight: 1.25 }}
@@ -186,14 +175,11 @@ export const GridItem = ({
 };
 
 GridItem.propTypes = {
-    title: PropTypes.string.isRequired,
-    media: PropTypes.string.isRequired,
-    url: PropTypes.string,
-    subttile: PropTypes.string.isRequired,
-    event: PropTypes.string.isRequired,
-    schedule: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    iamges: PropTypes.array.isRequired,
+    href: PropTypes.string,
     description: PropTypes.string.isRequired,
-    background: PropTypes.string.isRequired,
+    col: PropTypes.number.isRequired,
 };
 
 export default GridItem;

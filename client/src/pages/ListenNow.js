@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Grid, Paper, Typography, Box } from "@mui/material";
-import AppleMusicLogo from "../images/apple-music.svg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MacScreenshot from "../images/MacScreenshot.webp";
+import AppleIcon from "@mui/icons-material/Apple";
 
 const ListenNowPage = () => {
     return (
@@ -18,7 +18,6 @@ const ListenNowPage = () => {
         >
             <Paper
                 sx={{
-                    // padding: "8px",
                     align: "center",
                     margin: "auto",
                     paddingTop: "3%",
@@ -47,11 +46,19 @@ const ListenNowPage = () => {
                             paddingRight: "8px",
                         }}
                     >
-                        <img
-                            width={85}
-                            src={AppleMusicLogo}
-                            style={{ marginLeft: "5px" }}
-                        />
+                        <Typography
+                            sx={{
+                                color: "black",
+                                fontSize: "25px",
+                                lineHeight: 1.29412,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <AppleIcon sx={{ fontSize: "25px" }} />
+                            Music
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} align="center">
                         <Typography

@@ -5,7 +5,7 @@ import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import PopUp from "./PopUp";
 
 const PlaylistHeader = ({
-    item: { image, imageLayer, title, category, subtitle, description },
+    item: { images, imageLayer, name, type, description },
 }) => {
     const charLimit = 200;
     const [open, setOpen] = React.useState(false);
@@ -16,6 +16,7 @@ const PlaylistHeader = ({
     const handleClose = () => {
         setOpen(false);
     };
+    console.log(images);
     return (
         <Grid container sx={{ alignItems: "center", mb: "40px" }}>
             <Grid
@@ -34,45 +35,17 @@ const PlaylistHeader = ({
                         marginInlineStart: "auto",
                         marginInlineEnd: "auto",
                         zIndex: 1001,
+                        borderRadius: "6px",
                     }}
                 >
                     <img
+                        src={images?.[0].url}
+                        width="270px"
+                        height="270px"
                         style={{
-                            width: "100%",
-                            height: "100%",
-                            position: "absolute",
-                            transform: "scale(.88) translateY(calc(6% + 2px))",
-                            filter: "blur(20px) brightness(100%)",
-                            opacity: 0.4,
-                            zIndex: 1,
-                        }}
-                        src={imageLayer}
-                    />
-                    <div
-                        style={{
-                            aspectRatio: 1,
-                            backgroundColor: "#cc0202",
-                            boxShadow: "0 10px 20px 0 rgb(0 0 0 / 10%)",
-                            position: "relative",
-                            zIndex: 1,
-                            margin: 0,
-                            display: "block",
                             borderRadius: "6px",
-                            transition: "background .1s ease-in",
-                            width: "100%",
-                            height: "270px",
                         }}
-                    >
-                        <img
-                            src={image}
-                            width="270px"
-                            height="270px"
-                            role="presentation"
-                            style={{
-                                borderRadius: "6px",
-                            }}
-                        />
-                    </div>
+                    />
                 </div>
             </Grid>
             <Grid
@@ -95,7 +68,7 @@ const PlaylistHeader = ({
                         variant="h4"
                         sx={{ fontWeight: 600, fontSize: "26px", mt: "41px" }}
                     >
-                        {title}
+                        {name}
                     </Typography>
                     <Typography
                         sx={{
@@ -104,7 +77,7 @@ const PlaylistHeader = ({
                             color: "secondary.main",
                         }}
                     >
-                        {category}
+                        {type}
                     </Typography>
                     <Typography
                         sx={{
@@ -113,24 +86,26 @@ const PlaylistHeader = ({
                             textTransform: "uppercase",
                         }}
                     >
-                        {subtitle}
+                        Updated Yesterday
                     </Typography>
                     <div
                         style={{
                             marginTop: "23px",
                             maxWidth: "440px",
+                            width: "100%",
                         }}
                     >
-                        <div style={{ position: "relative" }}>
+                        <div style={{ position: "relative", width: "100%" }}>
                             <Typography
                                 sx={{
                                     fontSize: "13px",
                                 }}
                             >
-                                {description.substring(0, charLimit) +
-                                    (description.length > charLimit
-                                        ? "..."
-                                        : "")}
+                                {description?.length > charLimit
+                                    ? description.substring(0, charLimit) +
+                                      "..."
+                                    : description}
+                                {/* {description} */}
                             </Typography>
                             <Button
                                 sx={{
@@ -182,8 +157,8 @@ const PlaylistHeader = ({
             <PopUp
                 open={open}
                 onClose={handleClose}
-                title={title}
-                category={category}
+                name={name}
+                type={type}
                 description={description}
             />
         </Grid>

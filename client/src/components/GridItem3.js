@@ -8,7 +8,8 @@ const useStyles = makeStyles(() => ({
         listStyle: "none",
         maxHeight: "200px",
         position: "relative",
-        margin: "10px 0",
+        margin: "0",
+        padding: "5px",
         "&:hover": {
             cursor: "pointer",
             filter: "brightness(0.50)",
@@ -48,7 +49,7 @@ export const GridItem = ({
                         transition: " 0.2s ease-in",
                         width: "100%",
                         backgroundImage: `url(${icons[0].url})`,
-                        height: "150px",
+                        height: { xs: "111px", sm: "117px" },
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "50% 36%",
@@ -102,10 +103,11 @@ export const GridItem = ({
 };
 
 GridItem.propTypes = {
-    // title: PropTypes.string.isRequired,
-    // media: PropTypes.string.isRequired,
-    // url: PropTypes.string,
-    // textColor: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    icons: PropTypes.array.isRequired,
+    href: PropTypes.string,
+    titlePosition: PropTypes.string.isRequired,
+    col: PropTypes.number.isRequired,
 };
 
 export default GridItem;

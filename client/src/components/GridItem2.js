@@ -150,13 +150,11 @@ export const GridItem = ({
 };
 
 GridItem.propTypes = {
-    // description: PropTypes.string.isRequired,
-    // media: PropTypes.string.isRequired,
-    // url: PropTypes.string,
-    // textColor: PropTypes.string.isRequired,
-    // type: PropTypes.string.isRequired,
-    // line1: PropTypes.string.isRequired,
-    // line2: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    href: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
 };
 
 export default GridItem;

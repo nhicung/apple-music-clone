@@ -7,16 +7,10 @@ import {
     Grid,
     IconButton,
 } from "@mui/material/";
-import {
-    List,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-} from "@mui/material/";
+import { List, ListItemIcon, ListItemText } from "@mui/material/";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import GridViewIcon from "@mui/icons-material/GridView";
 import SensorsIcon from "@mui/icons-material/Sensors";
-import AppleMusicLogo from "../images/apple-music.svg";
 import AppleMusicCircle from "../images/apple-music-circle.png";
 import SearchBar from "./SearchBar";
 import CallMadeIcon from "@mui/icons-material/CallMade";
@@ -26,6 +20,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuListItem from "./MenuListItem";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import AppleIcon from "@mui/icons-material/Apple";
 
 const drawerWidth = 260;
 
@@ -158,11 +153,18 @@ export const SideBar = ({ handleOpen }) => {
                         justifyContent: "center",
                     }}
                 >
-                    <img
-                        width={65}
-                        src={AppleMusicLogo}
-                        style={{ marginLeft: "5px" }}
-                    />
+                    <Typography
+                        sx={{
+                            color: "black",
+                            fontSize: "18px",
+                            lineHeight: 1.29412,
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        <AppleIcon sx={{ fontSize: "15px" }} />
+                        Music
+                    </Typography>
                 </Grid>
                 <Grid
                     item
@@ -210,14 +212,22 @@ export const SideBar = ({ handleOpen }) => {
                         display: { xs: "none", sm: "flex" },
                     }}
                 >
-                    <img
-                        width={85}
-                        src={AppleMusicLogo}
-                        style={{ marginLeft: "5px" }}
-                    />
+                    <Typography
+                        sx={{
+                            color: "black",
+                            fontSize: "25px",
+                            lineHeight: 1.29412,
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        <AppleIcon sx={{ fontSize: "25px" }} />
+                        Music
+                    </Typography>
                 </Toolbar>
-                <SearchBar />
+
                 <div style={{ padding: "8px 25px" }}>
+                    {screenSize && <SearchBar />}{" "}
                     <List>
                         {sideBarTitle.map((menu) => (
                             <MenuListItem
@@ -225,7 +235,7 @@ export const SideBar = ({ handleOpen }) => {
                                 // onClick={(event) =>
                                 //     handleListItemClick(event, menu.id)
                                 // }
-                                onClick={screenSize || toggleDrawer}
+                                closeMenu={toggleDrawer}
                                 key={menu.id}
                                 display={menu.display}
                                 href={menu.link}

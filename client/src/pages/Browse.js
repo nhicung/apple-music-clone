@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Footer from "../components/Footer";
-import SignInModal from "../components/SignInModal";
 import Carousel from "../components/Carousel";
 import GridItem1 from "../components/GridItem1";
 import GridItem2 from "../components/GridItem2";
@@ -47,7 +46,7 @@ const BrowsePage = () => {
         getNewRealeases(0).then((res) => setAlbums(res));
         getNewRealeases(20).then((res) => setAlbums2(res));
         getNewRealeases(40).then((res) => setAlbums3(res));
-        getFeaturedPlaylists().then((res) => setPlaylist(res));
+        getFeaturedPlaylists(0).then((res) => setPlaylist(res));
         getCategories(7).then((res) => setCategories(res));
     }, []);
 
@@ -127,15 +126,16 @@ const BrowsePage = () => {
                     >
                         More to Explore
                     </Typography>
-                    <GridList
-                        itemList={categories}
-                        itemView={GridItem4}
-                        col={screenSize ? 3 : 1}
-                    />
+                    <Box sx={{ padding: "0 25px" }}>
+                        <GridList
+                            itemList={categories}
+                            itemView={GridItem4}
+                            col={screenSize ? 3 : 1}
+                        />
+                    </Box>
                 </Box>
             </Box>
             <Footer />
-            {/* <SignInModal /> */}
         </div>
     );
 };

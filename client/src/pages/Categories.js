@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Footer from "../components/Footer";
 import GridList from "../components/GridList";
 import GridItem3 from "../components/GridItem3";
-import data from "../MockData";
 import { getCategories } from "../utils/spotify";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import SearchBar from "../components/SearchBar";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,19 +16,18 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         flexGrow: 1,
         top: "55px",
-        padding: "10px 20px",
     },
     header: {
-        margin: "32px 10px 5px",
+        margin: "32px 10px 5px 0",
         display: "flex",
         alignItems: "flex-end",
-        borderBottom: " 0.5px solid rgba(0,0,0,0.15)",
     },
 }));
 
-const BrowsePage = () => {
+const Categories = () => {
     const classes = useStyles();
     const [categories, setCategories] = useState([]);
+    const screenSize = useMediaQuery("(min-width:600px)");
 
     useEffect(() => {
         getCategories().then((res) => setCategories(res));
@@ -36,32 +36,34 @@ const BrowsePage = () => {
     console.log(categories);
     return (
         <div className={classes.root}>
-            <div className={classes.header}>
-                <Typography
-                    sx={{
-                        fontSize: "17px",
-                        lineHeight: 1.17649,
-                        fontWeight: 700,
-                        letterSpacing: 0,
-                        mb: "6px",
-                        width: "100%",
-                    }}
-                >
-                    Browse Categories
-                </Typography>
-            </div>
-            <div>
-                <GridList
-                    itemList={categories}
-                    itemView={GridItem3}
-                    col={3}
-                    titlePosition="layOnTop"
-                />
-            </div>
-
+            <Box sx={{ padding: { xs: "5px 20px", sm: "10px 40px" } }}>
+                {screenSize || <SearchBar />}
+                <div className={classes.header}>
+                    <Typography
+                        sx={{
+                            fontSize: "17px",
+                            lineHeight: 1.17649,
+                            fontWeight: 700,
+                            letterSpacing: 0,
+                            mb: "6px",
+                            width: "100%",
+                        }}
+                    >
+                        Browse Categories
+                    </Typography>
+                </div>
+                <div>
+                    <GridList
+                        itemList={categories}
+                        itemView={GridItem3}
+                        col={screenSize ? 3 : 2}
+                        titlePosition="layOnTop"
+                    />
+                </div>
+            </Box>
             <Footer />
         </div>
     );
 };
 
-export default BrowsePage;
+export default Categories;

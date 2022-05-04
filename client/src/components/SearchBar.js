@@ -20,13 +20,10 @@ export const SearchBar = () => {
         <Autocomplete
             id="country-select-demo"
             sx={{
-                pl: "25px",
-                pr: "25px",
                 minHeight: "54px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                display: { xs: "none", sm: "flex" },
             }}
             options={categories.map((option) => option.name)}
             autoHighlight

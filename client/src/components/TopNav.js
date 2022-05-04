@@ -171,7 +171,6 @@ const TopBar = ({ handleOpen }) => {
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "flex-end",
-                                    // pr: "20px",
                                 }}
                             >
                                 <IconButton

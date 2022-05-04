@@ -1,8 +1,7 @@
 import { ListItemButton } from "@mui/material/";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const MenuListItem = ({ children, href, display, ...props }) => {
+const MenuListItem = ({ children, href, display, closeMenu, ...props }) => {
     const navigate = useNavigate();
 
     return (
@@ -17,6 +16,7 @@ const MenuListItem = ({ children, href, display, ...props }) => {
             props={props}
             onClick={() => {
                 navigate(href);
+                closeMenu();
             }}
         >
             {children}

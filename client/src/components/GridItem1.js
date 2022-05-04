@@ -43,17 +43,17 @@ const useStyles = makeStyles(() => ({
         position: "absolute !important",
         color: "grey !important",
         opacity: 0,
-        bottom: "3%",
+        bottom: "4%",
         transition: "0.3s !important",
         zIndex: 100,
     },
     playButton: {
-        left: "3%",
+        left: "1%",
         fontSize: 35,
         zIndex: 5,
     },
     moreButton: {
-        right: "3%",
+        right: "1%",
         fontSize: 35,
     },
 }));
@@ -134,12 +134,12 @@ export const GridItem = ({ item: { name, type, images, href }, col }) => {
     );
 };
 
-// GridItem.propTypes = {
-//     name: PropTypes.string.isRequired,
-//     type: PropTypes.string.isRequired,
-//     images: PropTypes.array.isRequired,
-//     href: PropTypes.string,
-//     col: PropTypes.number.isRequired,
-// };
+GridItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    href: PropTypes.string,
+    col: PropTypes.number.isRequired,
+};
 
 export default GridItem;

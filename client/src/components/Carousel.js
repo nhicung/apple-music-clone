@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "space-around",
         overflow: "hidden",
         position: "relative",
-        paddingTop: 10,
-        paddingBottom: 10,
+        padding: "10px 0px",
         borderBottom: "0.5px solid rgba(0,0,0,0.15)",
         "& .swiper-button-next": {
             right: -10,
@@ -37,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     swiper: {
-        padding: "0 15px",
+        padding: "0 20px !important",
         transform: "translate3d(0,0,50px)",
         "& .swiper-button-prev, .swiper-button-next": {
             opacity: 0,
@@ -79,7 +78,7 @@ const Slider = ({ itemList, itemView, header, cols, rows, seeAll, top }) => {
                                 letterSpacing: 0,
                                 mb: "6px",
                                 width: "100%",
-                                paddingLeft: "25px",
+                                paddingLeft: "30px",
                             }}
                         >
                             {header}

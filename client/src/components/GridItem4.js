@@ -8,7 +8,6 @@ const useStyles = makeStyles(() => ({
     gridItem: {
         width: "100%",
         cursor: "pointer",
-        // display: "block",
         borderRadius: " 15px",
     },
     frame: {
@@ -78,6 +77,7 @@ export const GridItem = ({ item: { name, href }, col }) => {
 GridItem.propTypes = {
     name: PropTypes.string.isRequired,
     href: PropTypes.string,
+    col: PropTypes.number.isRequired,
 };
 
 export default GridItem;
