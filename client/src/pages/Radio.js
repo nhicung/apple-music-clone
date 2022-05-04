@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         flexGrow: 1,
         top: "55px",
-        padding: "0 15px",
     },
     header: {},
 }));
@@ -58,12 +57,12 @@ const RadioPage = () => {
                     Radio
                 </Typography>
             </Box>
-            <Box sx={{ padding: { xs: "10px 0", sm: "20px 0" } }}>
+            <Box sx={{ padding: { xs: "10px 0", sm: "20px 5px" } }}>
                 <Box
                     sx={{
                         padding: {
                             xs: "0 15px 30px 25px",
-                            sm: "0 20px 30px 30px",
+                            sm: "0 25px 30px 35px",
                         },
                         borderBottom: "0.5px solid rgba(0,0,0,0.15)",
                     }}

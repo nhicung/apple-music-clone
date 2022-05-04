@@ -49,7 +49,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const GridItem = ({
-    item: { href, images, name, description },
+    item: { href, images, name, description, id },
     col,
 }) => {
     const styles = useStyles();
@@ -91,7 +91,7 @@ export const GridItem = ({
                 </IconButton>
             </div>
 
-            <Link href={href} style={{ textDecoration: "none" }}>
+            <Link href={`playlist/${id}`} style={{ textDecoration: "none" }}>
                 <div
                     className={styles.wrapper}
                     style={{
@@ -178,6 +178,7 @@ GridItem.propTypes = {
     name: PropTypes.string.isRequired,
     iamges: PropTypes.array.isRequired,
     href: PropTypes.string,
+    id: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     col: PropTypes.number.isRequired,
 };

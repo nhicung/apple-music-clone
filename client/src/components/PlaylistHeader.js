@@ -16,7 +16,7 @@ const PlaylistHeader = ({
     const handleClose = () => {
         setOpen(false);
     };
-    console.log(images);
+    // console.log(images);
     return (
         <Grid container sx={{ alignItems: "center", mb: "40px" }}>
             <Grid
@@ -95,37 +95,41 @@ const PlaylistHeader = ({
                             width: "100%",
                         }}
                     >
-                        <div style={{ position: "relative", width: "100%" }}>
-                            <Typography
-                                sx={{
-                                    fontSize: "13px",
-                                }}
+                        {description && (
+                            <div
+                                style={{ position: "relative", width: "100%" }}
                             >
-                                {description?.length > charLimit
-                                    ? description.substring(0, charLimit) +
-                                      "..."
-                                    : description}
-                                {/* {description} */}
-                            </Typography>
-                            <Button
-                                sx={{
-                                    mb: "-5px",
-                                    position: "absolute",
-                                    textDecoration: "none",
-                                    lineHeight: "inherit",
-                                    bottom: 0,
-                                    zIndex: 1,
-                                    right: 0,
-                                    fontSize: "12px",
-                                    fontWeight: 550,
-                                }}
-                                fontSize="inherit"
-                                size="small"
-                                onClick={handleOpen}
-                            >
-                                More
-                            </Button>
-                        </div>
+                                <Typography
+                                    sx={{
+                                        fontSize: "13px",
+                                    }}
+                                >
+                                    {description?.length > charLimit
+                                        ? description.substring(0, charLimit) +
+                                          "..."
+                                        : description}
+                                    {/* {description} */}
+                                </Typography>
+                                <Button
+                                    sx={{
+                                        mb: "-5px",
+                                        position: "absolute",
+                                        textDecoration: "none",
+                                        lineHeight: "inherit",
+                                        bottom: 0,
+                                        zIndex: 1,
+                                        right: 0,
+                                        fontSize: "12px",
+                                        fontWeight: 550,
+                                    }}
+                                    fontSize="inherit"
+                                    size="small"
+                                    onClick={handleOpen}
+                                >
+                                    More
+                                </Button>
+                            </div>
+                        )}
                     </div>
                     <Stack
                         direction="row"

@@ -26,21 +26,21 @@ const useStyles = makeStyles((theme) => ({
 
 const PlayList = () => {
     const classes = useStyles();
-    const [playlist, setPlaylist] = useState([]);
+    // const [playlist, setPlaylist] = useState([]);
     const [header, setHeader] = useState([]);
-    // const [album, setAlbum] = useState([]);
+    const [album, setAlbum] = useState([]);
 
     const params = useParams();
 
     useEffect(() => {
-        getPlaylist(params.id).then((res) => setPlaylist(res.tracks.items));
-        getPlaylist(params.id).then((res) => setHeader(res));
+        getAlbum(params.id).then((res) => setAlbum(res.tracks.items));
+        getAlbum(params.id).then((res) => setHeader(res));
     }, []);
 
     return (
         <div className={classes.root}>
             <PlaylistHeader item={header} />
-            <SongList songList={playlist} />
+            <SongList songList={album} />
             <Footer />
         </div>
     );

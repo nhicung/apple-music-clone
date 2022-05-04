@@ -28,7 +28,7 @@ export const getFeaturedPlaylists = async (offset = 0) => {
     try {
         await getAccessToken();
         const res = await spotify.getFeaturedPlaylists({ offset: offset });
-        // console.log(res);
+        console.log(res);
         return res.playlists.items;
     } catch (err) {
         console.error(err);
@@ -61,6 +61,17 @@ export const getPlaylist = async (playlistId) => {
     try {
         await getAccessToken();
         const res = await spotify.getPlaylist(playlistId);
+        console.log(res);
+        return res;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const getAlbum = async (albumId) => {
+    try {
+        await getAccessToken();
+        const res = await spotify.getAlbum(albumId);
         console.log(res);
         return res;
     } catch (err) {

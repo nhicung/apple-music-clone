@@ -22,14 +22,12 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         flexGrow: 1,
         top: "55px",
-        padding: "0 15px",
     },
     header: {
-        margin: "32px 10px 0",
+        margin: "32px 40px 0",
         display: "flex",
         alignItems: "flex-end",
         borderBottom: " 0.5px solid rgba(0,0,0,0.15)",
-        marginLeft: "20px",
     },
 }));
 
@@ -77,7 +75,7 @@ const BrowsePage = () => {
                     Browse
                 </Typography>
             </Box>
-            <Box sx={{ paddingBottom: "48px" }}>
+            <Box sx={{ padding: { xs: "0 0px 48px", sm: "0 15px 48px" } }}>
                 <Carousel
                     itemList={playlist}
                     cols={screenSize ? 2 : 1.5}

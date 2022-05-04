@@ -58,7 +58,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const GridItem = ({ item: { name, type, images, href }, col }) => {
+export const GridItem = ({ item: { name, type, images, href, id }, col }) => {
     const styles = useStyles();
     return (
         <Grid
@@ -68,16 +68,16 @@ export const GridItem = ({ item: { name, type, images, href }, col }) => {
             align="center"
             className={styles.gridItem}
         >
-            <Link href={href} style={{ textDecoration: "none" }}>
+            <Link href={`album/${id}`} style={{ textDecoration: "none" }}>
                 <div className={styles.frame}>
                     <img
-                        href={href}
+                        href={`album/${id}`}
                         src={images?.[0].url}
                         alt={name}
                         className={styles.pic}
                     />
                     <IconButton
-                        href={href}
+                        href={`album/${id}`}
                         target="blank"
                         className={cx(styles.buttonGroup, styles.playButton)}
                         size="small"
@@ -94,7 +94,7 @@ export const GridItem = ({ item: { name, type, images, href }, col }) => {
                         />
                     </IconButton>
                     <IconButton
-                        href={href}
+                        href={`album/${id}`}
                         target="blank"
                         className={cx(styles.buttonGroup, styles.moreButton)}
                         size="small"
@@ -139,6 +139,7 @@ GridItem.propTypes = {
     type: PropTypes.string.isRequired,
     images: PropTypes.array.isRequired,
     href: PropTypes.string,
+    id: PropTypes.string.isRequired,
     col: PropTypes.number.isRequired,
 };
 

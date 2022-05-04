@@ -10,7 +10,8 @@ import {
 } from "@mui/material/";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
-import { getPlaylist } from "../utils/spotify";
+import { getPlaylist, getAlbum } from "../utils/spotify";
+import { useParams } from "react-router-dom";
 
 const columns = [
     { id: "song", label: "Song", minWidth: "42%" },
@@ -34,14 +35,16 @@ const columns = [
     },
 ];
 
-export default function StickyHeadTable() {
+export default function StickyHeadTable({ songList }) {
     const [playlist, setPlaylist] = useState([]);
-    useEffect(() => {
-        getPlaylist("37i9dQZF1DXcBWIGoYBM5M").then((res) =>
-            setPlaylist(res.tracks.items)
-        );
-    }, []);
+    const [album, setAlbum] = useState([]);
 
+    const params = useParams();
+
+    useEffect(() => {
+        getPlaylist(params.id).then((res) => setPlaylist(res.tracks.rows));
+        getAlbum(params.id).then((res) => setAlbum(res.tracks.rows));
+    }, []);
     return (
         <Paper
             sx={{
@@ -92,11 +95,15 @@ export default function StickyHeadTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {playlist.map((row) => {
-                            const item = row.track;
-                            var minutes = Math.floor(item.duration_ms / 60000);
+                        {songList.map((row) => {
+                            // var row;
+                            if (row.type !== "album") {
+                                row = row.track;
+                            }
+                            console.log(row + "here");
+                            var minutes = Math.floor(row.duration_ms / 60000);
                             var seconds = (
-                                (item.duration_ms % 60000) /
+                                (row.duration_ms % 60000) /
                                 1000
                             ).toFixed(0);
                             return (
@@ -109,28 +116,36 @@ export default function StickyHeadTable() {
                                     <TableCell
                                         sx={{
                                             display: "flex",
-                                            alignItems: "center",
+                                            alignrows: "center",
                                             borderBottom: "none",
                                             color: "black !important",
                                         }}
                                     >
-                                        <div style={{ marginRight: "20px" }}>
-                                            <img
-                                                src={item.album.images[0].url}
-                                                height="40"
-                                                style={{ borderRadius: "3px" }}
-                                            />
-                                        </div>
-                                        {item.name}
+                                        {row.type === "album" || (
+                                            <div
+                                                style={{ marginRight: "20px" }}
+                                            >
+                                                <img
+                                                    src={
+                                                        row.album.images[0].url
+                                                    }
+                                                    height="40"
+                                                    style={{
+                                                        borderRadius: "3px",
+                                                    }}
+                                                />
+                                            </div>
+                                        )}
+                                        {row.name}
                                     </TableCell>
                                     <TableCell>
-                                        {item.artists[0].name}
+                                        {row.artists?.[0].name}
                                     </TableCell>
-                                    <TableCell>{item.album.name}</TableCell>
+                                    <TableCell>{row.album?.name}</TableCell>
                                     <TableCell
                                         sx={{
                                             display: "flex",
-                                            alignItems: "center",
+                                            alignrows: "center",
                                         }}
                                     >
                                         {seconds == 60

@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const GridItem = ({
-    item: { description, images, href, type, name },
+    item: { description, images, href, type, name, id },
 }) => {
     const styles = useStyles();
     return (
@@ -74,7 +74,7 @@ export const GridItem = ({
                     {type}
                 </Typography>
             </div>
-            <Link href={href} style={{ textDecoration: "none" }}>
+            <Link href={`playlist/${id}`} style={{ textDecoration: "none" }}>
                 <Box
                     sx={{
                         position: "relative",
