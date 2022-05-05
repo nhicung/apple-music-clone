@@ -24,10 +24,13 @@ export const getNewRealeases = async (offset = 0) => {
     }
 };
 
-export const getFeaturedPlaylists = async (offset = 0) => {
+export const getFeaturedPlaylists = async (offset = 0, limit = 20) => {
     try {
         await getAccessToken();
-        const res = await spotify.getFeaturedPlaylists({ offset: offset });
+        const res = await spotify.getFeaturedPlaylists({
+            offset: offset,
+            limit: limit,
+        });
         console.log(res);
         return res.playlists.items;
     } catch (err) {

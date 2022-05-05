@@ -97,10 +97,10 @@ export default function StickyHeadTable({ songList }) {
                     <TableBody>
                         {songList.map((row) => {
                             // var row;
-                            if (row.type !== "album") {
+                            if (row.type !== "track") {
                                 row = row.track;
                             }
-                            console.log(row + "here");
+                            console.log(row, "here");
                             var minutes = Math.floor(row.duration_ms / 60000);
                             var seconds = (
                                 (row.duration_ms % 60000) /
@@ -121,7 +121,7 @@ export default function StickyHeadTable({ songList }) {
                                             color: "black !important",
                                         }}
                                     >
-                                        {row.type === "album" || (
+                                        {row.album && (
                                             <div
                                                 style={{ marginRight: "20px" }}
                                             >
@@ -146,6 +146,7 @@ export default function StickyHeadTable({ songList }) {
                                         sx={{
                                             display: "flex",
                                             alignrows: "center",
+                                            alignItems: "center",
                                         }}
                                     >
                                         {seconds == 60

@@ -5,7 +5,7 @@ import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import PopUp from "./PopUp";
 
 const PlaylistHeader = ({
-    item: { images, imageLayer, name, type, description },
+    item: { images, release_date, name, type, description, label },
 }) => {
     const charLimit = 200;
     const [open, setOpen] = React.useState(false);
@@ -75,9 +75,10 @@ const PlaylistHeader = ({
                             width: "100%",
                             fontSize: "26px",
                             color: "secondary.main",
+                            lineHeight: 1.3,
                         }}
                     >
-                        {type}
+                        {label || type}
                     </Typography>
                     <Typography
                         sx={{
@@ -86,7 +87,7 @@ const PlaylistHeader = ({
                             textTransform: "uppercase",
                         }}
                     >
-                        Updated Yesterday
+                        {release_date || "Updated Yesterday"}
                     </Typography>
                     <div
                         style={{

@@ -44,7 +44,7 @@ const BrowsePage = () => {
         getNewRealeases(0).then((res) => setAlbums(res));
         getNewRealeases(20).then((res) => setAlbums2(res));
         getNewRealeases(40).then((res) => setAlbums3(res));
-        getFeaturedPlaylists(0).then((res) => setPlaylist(res));
+        getFeaturedPlaylists(3, 20).then((res) => setPlaylist(res));
         getCategories(7).then((res) => setCategories(res));
     }, []);
 

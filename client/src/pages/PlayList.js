@@ -37,6 +37,8 @@ const PlayList = () => {
         getPlaylist(params.id).then((res) => setHeader(res));
     }, []);
 
+    console.log(header);
+
     return (
         <div className={classes.root}>
             <PlaylistHeader item={header} />

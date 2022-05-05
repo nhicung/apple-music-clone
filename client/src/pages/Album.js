@@ -35,6 +35,7 @@ const PlayList = () => {
     useEffect(() => {
         getAlbum(params.id).then((res) => setAlbum(res.tracks.items));
         getAlbum(params.id).then((res) => setHeader(res));
+        console.log(header);
     }, []);
 
     return (

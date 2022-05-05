@@ -30,7 +30,7 @@ const RadioPage = () => {
     const screenSize = useMediaQuery("(min-width:600px)");
 
     useEffect(() => {
-        getFeaturedPlaylists(9).then((res) => setPlaylist(res));
+        getFeaturedPlaylists(0, 3).then((res) => setPlaylist(res));
         getNewRealeases(60).then((res) => setNewReleases(res));
         getNewRealeases(80).then((res) => setNewReleases2(res));
     }, []);
