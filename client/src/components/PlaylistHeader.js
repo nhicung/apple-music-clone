@@ -18,7 +18,7 @@ const PlaylistHeader = ({
     };
     // console.log(images);
     return (
-        <Grid container sx={{ alignItems: "center", mb: "40px" }}>
+        <Grid container sx={{ alignItems: "center", margin: "20px 40px 40px" }}>
             <Grid
                 item
                 sx={{

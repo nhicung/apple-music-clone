@@ -51,8 +51,8 @@ export default function StickyHeadTable({ songList }) {
                 width: "100%",
                 overflow: "hidden",
                 boxShadow: "none",
-                mt: "16px",
-                ml: "-10px",
+                margin: "16px 20px",
+                // ml: "-10px",
             }}
         >
             <TableContainer sx={{ maxHeight: 440 }}>

@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         flexGrow: 1,
         top: "75px",
-        padding: "20px",
     },
     header: {
         margin: "32px 10px 0",
