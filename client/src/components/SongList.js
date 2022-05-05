@@ -51,7 +51,7 @@ export default function StickyHeadTable({ songList }) {
                 width: "100%",
                 overflow: "hidden",
                 boxShadow: "none",
-                margin: "16px 20px",
+                padding: "16px 20px",
                 // ml: "-10px",
             }}
         >
