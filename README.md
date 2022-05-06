@@ -43,13 +43,13 @@ This website is:
 
 ## Page View
 ### Browse Page
-![](screenshot/browse.png)
+![](screenshots/browse.png)
 ### Listen Now Page
-![](screenshot/listen-now.png)
+![](screenshots/listen-now.png)
 ### Radio Page
-![](screenshot/radio.png)
+![](screenshots/radio.png)
 ### Categories Page
-![](screenshot/categories.png)
+![](screenshots/categories.png)
 
 ## Technology
 
