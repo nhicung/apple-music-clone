@@ -41,6 +41,16 @@ This website is:
 * A clone of the Apple Music web app
 * User can navigate to different pages with the side menu and browse music playlists
 
+## Page View
+### Browse Page
+![](screenshot/browse.png)
+### Listen Now Page
+![](screenshot/listen-now.png)
+### Radio Page
+![](screenshot/radio.png)
+### Categories Page
+![](screenshot/categories.png)
+
 ## Technology
 
 * [React](https://reactjs.org)
