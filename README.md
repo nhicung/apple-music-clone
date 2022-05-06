@@ -1,6 +1,6 @@
-# CungDesign
+# Apple Music App Clone
 A website showcases art collection, using react libraries.
-https://nhicung.github.io/CungDesign/
+https://whispering-thicket-41770.herokuapp.com
 
 ## Table of contents
 * [Getting Started](#getting-started)
