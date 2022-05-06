@@ -50,6 +50,8 @@ This website is:
 ![](screenshots/radio.png)
 ### Categories Page
 ![](screenshots/categories.png)
+### Playlist Page
+![](screenshots/playlist.png)
 
 ## Technology
 
