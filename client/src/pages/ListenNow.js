@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Grid, Paper, Typography, Box } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MacScreenshot from "../images/MacScreenshot.webp";
+import MacScreenshot from "../images/MacScreenshot.png";
 import AppleIcon from "@mui/icons-material/Apple";
 
 const ListenNowPage = () => {
