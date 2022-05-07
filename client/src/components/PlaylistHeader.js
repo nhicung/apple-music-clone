@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Grid, Typography, Button, Stack, IconButton } from "@mui/material/";
+import {
+    Grid,
+    Typography,
+    Button,
+    Stack,
+    IconButton,
+    Box,
+} from "@mui/material/";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import PopUp from "./PopUp";
@@ -20,15 +27,29 @@ const PlaylistHeader = ({
     return (
         <Grid
             container
-            sx={{ alignItems: "center", padding: "20px 40px 40px" }}
+            sx={{
+                alignItems: "center",
+                padding: { xs: "0px 20px 20px", sm: "20px 40px 40px" },
+                justifyContent: { xs: "center" },
+            }}
         >
             <Grid
                 item
                 sx={{
-                    width: "270px",
+                    width: { xs: "100%", sm: "270px" },
                     height: "270px",
                 }}
             >
+                <IconButton
+                    color="secondary"
+                    sx={{
+                        display: { xs: "flex", sm: "none" },
+                        justifyContent: "flex-end",
+                        width: "100%",
+                    }}
+                >
+                    <MoreHorizRoundedIcon />
+                </IconButton>
                 <div
                     style={{
                         position: "relative",
@@ -55,7 +76,8 @@ const PlaylistHeader = ({
                 item
                 sm
                 sx={{
-                    pl: "34px",
+                    pl: { xs: 0, sm: "34px" },
+                    pt: { xs: "20px", sm: 0 },
                 }}
             >
                 <div
@@ -69,7 +91,14 @@ const PlaylistHeader = ({
                 >
                     <Typography
                         variant="h4"
-                        sx={{ fontWeight: 600, fontSize: "26px", mt: "41px" }}
+                        sx={{
+                            fontWeight: 600,
+                            fontSize: "26px",
+                            mt: { xs: "41px", sm: 0 },
+                            display: { xs: "flex", sm: "inline" },
+                            justifyContent: { xs: "center", sm: "flex-start" },
+                            width: "100%",
+                        }}
                     >
                         {name}
                     </Typography>
@@ -79,6 +108,9 @@ const PlaylistHeader = ({
                             fontSize: "26px",
                             color: "secondary.main",
                             lineHeight: 1.3,
+                            display: { xs: "flex", sm: "inline" },
+                            justifyContent: { xs: "center", sm: "flex-start" },
+                            width: "100%",
                         }}
                     >
                         {label || type}
@@ -88,13 +120,16 @@ const PlaylistHeader = ({
                             fontSize: "12px",
                             color: "lighter.main",
                             textTransform: "uppercase",
+                            display: { xs: "flex", sm: "inline" },
+                            justifyContent: { xs: "center", sm: "flex-start" },
+                            width: "100%",
                         }}
                     >
                         {release_date || "Updated Yesterday"}
                     </Typography>
-                    <div
-                        style={{
-                            marginTop: "23px",
+                    <Box
+                        sx={{
+                            marginTop: { xs: 0, sm: "23px" },
                             maxWidth: "440px",
                             width: "100%",
                         }}
@@ -116,11 +151,11 @@ const PlaylistHeader = ({
                                 </Typography>
                                 <Button
                                     sx={{
-                                        mb: "-5px",
+                                        mb: { xs: 0, sm: "-5px" },
                                         position: "absolute",
                                         textDecoration: "none",
                                         lineHeight: "inherit",
-                                        bottom: 0,
+                                        bottom: { sm: 0 },
                                         zIndex: 1,
                                         right: 0,
                                         fontSize: "12px",
@@ -134,7 +169,7 @@ const PlaylistHeader = ({
                                 </Button>
                             </div>
                         )}
-                    </div>
+                    </Box>
                     <Stack
                         direction="row"
                         justifyContent="space-between"
@@ -143,6 +178,10 @@ const PlaylistHeader = ({
                         sx={{
                             width: "100%",
                             marginTop: "23px",
+                            justifyContent: {
+                                xs: "center",
+                                sm: "space-between",
+                            },
                         }}
                     >
                         <Button
@@ -156,7 +195,10 @@ const PlaylistHeader = ({
                         >
                             Preview
                         </Button>
-                        <IconButton color="secondary">
+                        <IconButton
+                            color="secondary"
+                            sx={{ display: { xs: "none", sm: "flex" } }}
+                        >
                             <MoreHorizRoundedIcon />
                         </IconButton>
                     </Stack>
