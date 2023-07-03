@@ -19,13 +19,16 @@ const useStyles = makeStyles(() => ({
             },
         },
     },
+    gridSingleItem: {
+        flexGrow: "0 !important",
+    },
     pic: {
         height: "auto",
         borderRadius: 6,
     },
     description: {
         padding: "10px",
-        color: "#fffff",
+        color: "#000",
     },
     playButton: {
         position: "absolute !important",
@@ -51,6 +54,7 @@ export const GridItem = ({ item: { name, type, images, href }, col }) => {
                             maxWidth: "fit-content",
                             position: "relative",
                         }}
+                        className={styles.gridSingleItem}
                     >
                         <img
                             href={href}
