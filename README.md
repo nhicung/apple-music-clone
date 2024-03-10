@@ -25,13 +25,20 @@ Open the Terminal and type
 ```
 brew install node
 ```
-Clone or download the project, open it on a suitable platform (suggested: [Visual Studio Code](https://code.visualstudio.com))
+* Clone or download the project, open it on a suitable platform (suggested: [Visual Studio Code](https://code.visualstudio.com))
 
-* Enter these command lines:
-```
-npm install
-npm start
-```
+* Add .env file and refer to .env.change-this to add client ID and client secret (obtain keys from Spotify).
+* Enter these command lines to run locally:
+  * On server side (root folder)
+    ```
+    npm install
+    npm start
+    ```
+  * On client side (/client) 
+    ```
+    npm install
+    npm start
+    ```
 The page will reload if you make edits.<br />
 Website will be shown on your browser, running on your local host.
 
