@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Loader from './components/Loader';
 import { ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import theme from './theme';
@@ -60,7 +61,7 @@ function App() {
         </Box>
       </ThemeProvider>
     </BrowserRouter>
-  ) : <>Loading!!!!</>;
+  ) : <Loader/>;
 }
 
 export default App;
